@@ -3,16 +3,29 @@
 //
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 #ifndef RUBIXDREAM_RUBIXDREAM_H
 #define RUBIXDREAM_RUBIXDREAM_H
+//definitions
 
-typedef enum{FRONT, BACK,UP,DOWN,RIGHT,LEFT }T_SIDE;
+typedef enum{FRONT, BACK,UP,DOWN,RIGHT,LEFT }Type_SIDE;
 typedef enum{R, B, G, W, Y, O, LG}T_COLOR;
+
+//structures
+
 struct FACE{
-    T_SIDE SIDE;
+    Type_SIDE SIDE;
     T_COLOR BLOCK[3][3];
 };
 
+//functions headers
+
+struct FACE* CreateRubiks();
+void init_rubiks(struct FACE* rubiks);
+void display_rubiks(struct FACE* rubiks);
+
+int select_color(T_COLOR color);
+int side_to_index(Type_SIDE face, struct FACE* rubiks);
 
 
 #endif //RUBIXDREAM_RUBIXDREAM_H

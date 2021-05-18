@@ -3,14 +3,17 @@
 //
 #include "rubixdream.h"
 #include "conio.h"
-#include "rubixdream.c"
 #include <stdio.h>
 
 int main (){
-//    c_textcolor(BLUE);
-//    printf("hello world\n");
-//    c_textcolor(RED);
-//    printf("welcome to Rubixdream");
-    CreateRubiks();
+    //c_textcolor(4);
+    //printf("hello world\n");
+    //c_textcolor(12);
+    //printf("welcome to Rubixdream\n");
+    struct FACE* Rubiks = CreateRubiks();
+    init_rubiks(Rubiks);
+    if(Rubiks[0].BLOCK[0][0] == W){
+        printf("c'est bon");
+    }
     return 0;
 }
