@@ -96,7 +96,7 @@ void display_line(struct FACE* rubiks, int face, int row){
 }
 
 void display_middleline(struct FACE* rubiks,int line_number){
-    for(int i = 1;i<5;++i){
+    for(int i = 1;i<5;i++){
         display_line(rubiks ,i,line_number);
          printf("    ");
     }
@@ -145,20 +145,20 @@ void fill_rubiks(struct FACE* rubiks, int face,int row,int collumn, T_COLOR colo
 
 // Movement funtions
 
-void turn_clockwise(struct FACE* rubiks, Type_SIDE face){
+void turn_clockwise(struct FACE* rubiks, Type_SIDE Rotatedface){
     struct FACE old_rubiks, old_rubiks_bis;
-    switch(face){
+    switch(Rotatedface){
         case UP:
             // rotating the values inside the main face
             old_rubiks = rubiks[0];
-            for (int row = 0; row<3; ++row) {
-                for (int col = 0; col < 3; ++col){
+            for (int row = 0; row<3; row++) {
+                for (int col = 0; col < 3; col++){
                     rubiks[0].BLOCK[col][2-row] = old_rubiks.BLOCK[row][col];
                 }
             }
             // rotating the other faces that also turn with the front
             old_rubiks_bis = rubiks[1];
-            for (int face = 1; face <5; face ++){
+            for (int face = 1; face <5; face++){
               for (int col = 0; col < 3; col++){
                   if (face+1 != 5){
                       old_rubiks = rubiks[face+1];
@@ -177,7 +177,26 @@ void turn_clockwise(struct FACE* rubiks, Type_SIDE face){
         case RIGHT:
             break;
         case DOWN:
-            break;
+            // rotating the values inside the main face
+            old_rubiks = rubiks[5];
+            for (int row = 0; row<3; row++) {
+                for (int col = 0; col < 3; col++){
+                    rubiks[5].BLOCK[col][2-row] = old_rubiks.BLOCK[row][col];
+                }
+            }
+            // rotating the other faces that also turn with the front
+            old_rubiks_bis = rubiks[4];
+            for (int face = 4; face >= 1; face--){
+                for (int col = 0; col < 3; col++){
+                    if (face != 1){
+                        old_rubiks = rubiks[face-1];
+                        rubiks[face].BLOCK[2][col] = old_rubiks.BLOCK[2][col];
+                    }
+                    if (face == 1){
+                        rubiks[face].BLOCK[2][col] = old_rubiks_bis.BLOCK[2][col];
+                    }
+                }
+            }
         case BACK:
             break;
         default:

@@ -8,8 +8,9 @@
 #define RUBIXDREAM_RUBIXDREAM_H
 //definitions
 
-typedef enum{FRONT, BACK,UP,DOWN,RIGHT,LEFT }Type_SIDE;
+typedef enum{FRONT, BACK, UP, DOWN, RIGHT, LEFT }Type_SIDE;
 typedef enum{W, O, G, R, B, Y, LG}T_COLOR;
+
 
 //structures
 
