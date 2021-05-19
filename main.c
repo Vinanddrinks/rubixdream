@@ -15,5 +15,7 @@ int main (){
     if(Rubiks[0].BLOCK[0][0] == W){
         printf("c'est bon");
     }
+    display_rubiks(Rubiks);
     return 0;
+
 }
