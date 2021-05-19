@@ -20,8 +20,13 @@ struct FACE{
 
 //functions headers
 
+//Rubiks initialisation functions
+
 struct FACE* CreateRubiks();
 void init_rubiks(struct FACE* rubiks);
+
+//Display functions
+
 void display_rubiks(struct FACE* rubiks);
 void display_line(struct FACE* rubiks, int face, int row);
 void display_middleline(struct FACE* rubiks,int line_number);
