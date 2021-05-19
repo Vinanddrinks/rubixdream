@@ -87,6 +87,30 @@ void display_line(struct FACE* rubiks, int face, int row){
     }
 }
 
+void display_middleline(struct FACE* rubiks,int line_number){
+    for(int i = 1;i<5;++i){
+        display_line(rubiks ,i,line_number);
+         printf("    ");
+    }
+    printf("\n");
+}
+
+void display_middleFaces(struct FACE* rubiks){
+    for (int i = 0; i<3; i++){
+        display_middleline(rubiks,i);
+    }
+    printf("\n");
+}
+
+void display_singleFace(struct FACE* rubiks, int face){
+    for (int i = 0; i < 3; i++){
+        printf("          ");
+        display_line(rubiks, face, i);
+        printf("\n");
+    }
+    printf("\n");
+}
+
 void display_rubiks(struct FACE* rubiks) {
     display_singleFace(rubiks, 0);
     display_middleFaces(rubiks);
