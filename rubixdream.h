@@ -33,9 +33,20 @@ void display_middleline(struct FACE* rubiks,int line_number);
 void display_middleFaces(struct FACE* rubiks);
 void display_singleFace(struct FACE* rubiks, int face);
 
+// Rubiks manipulations functions
+
+void blank_rubiks(struct FACE* rubiks);
+void fill_rubiks(struct FACE* rubiks, int face,int row,int collumn, T_COLOR color);
+void turn_clockwise(struct FACE* rubiks, Type_SIDE face);
+
+// structure manipulations fonction
+
 int select_color(T_COLOR color);
 char* select_caption(T_COLOR block_color);
 int side_to_index(Type_SIDE face, struct FACE* rubiks);
+
+// Free
+void free_rubiks(struct FACE* rubiks);
 
 
 #endif //RUBIXDREAM_RUBIXDREAM_H
