@@ -184,7 +184,7 @@ void turn_clockwise(struct FACE* rubiks, Type_SIDE Rotatedface){
                     rubiks[5].BLOCK[col][2-row] = old_rubiks.BLOCK[row][col];
                 }
             }
-            // rotating the other faces that also turn with the front
+            // rotating the other faces that also turn with the BACK
             old_rubiks_bis = rubiks[4];
             for (int face = 4; face >= 1; face--){
                 for (int col = 0; col < 3; col++){
