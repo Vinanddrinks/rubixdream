@@ -9,7 +9,7 @@
 //definitions
 
 typedef enum{FRONT, BACK,UP,DOWN,RIGHT,LEFT }Type_SIDE;
-typedef enum{R, B, G, W, Y, O, LG}T_COLOR;
+typedef enum{W, O, G, R, B, Y, LG}T_COLOR;
 
 //structures
 
@@ -23,8 +23,10 @@ struct FACE{
 struct FACE* CreateRubiks();
 void init_rubiks(struct FACE* rubiks);
 void display_rubiks(struct FACE* rubiks);
+void display_line(struct FACE* rubiks, int face, int row);
 
 int select_color(T_COLOR color);
+char* select_caption(T_COLOR block_color);
 int side_to_index(Type_SIDE face, struct FACE* rubiks);
 
 

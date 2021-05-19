@@ -12,10 +12,10 @@ int main (){
     //printf("welcome to Rubixdream\n");
       struct FACE* Rubiks = CreateRubiks();
     init_rubiks(Rubiks);
-    if(Rubiks[0].BLOCK[0][0] == W){
-        printf("c'est bon");
-    }
+//    if(Rubiks[2].BLOCK[0][0] == G){
+//        printf("c'est bon");
+//    }
+//    printf("%s", select_caption(Rubiks[0].BLOCK[0][0]));
     display_rubiks(Rubiks);
     return 0;
-
 }
