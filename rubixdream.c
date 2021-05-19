@@ -146,14 +146,30 @@ void fill_rubiks(struct FACE* rubiks, int face,int row,int collumn, T_COLOR colo
 // Movement funtions
 
 void turn_clockwise(struct FACE* rubiks, Type_SIDE face){
-    struct FACE* old_rubiks = rubiks;
+    struct FACE old_rubiks, old_rubiks_bis;
     switch(face){
         case UP:
-            for (int row = 0; row<3; row++) {
-                for (int col = 2; col > -1; col--){
-                    rubiks[0].BLOCK[row][col] = old_rubiks[0].BLOCK[col][row];
+            // rotating the values inside the main face
+            old_rubiks = rubiks[0];
+            for (int row = 0; row<3; ++row) {
+                for (int col = 0; col < 3; ++col){
+                    rubiks[0].BLOCK[col][2-row] = old_rubiks.BLOCK[row][col];
                 }
             }
+            // rotating the other faces that also turn with the front
+            old_rubiks_bis = rubiks[1];
+            for (int face = 1; face <5; face ++){
+              for (int col = 0; col < 3; col++){
+                  if (face+1 != 5){
+                      old_rubiks = rubiks[face+1];
+                      rubiks[face].BLOCK[0][col] = old_rubiks.BLOCK[0][col];
+                  }
+                  if (face+1 == 5){
+                      rubiks[face].BLOCK[0][col] = old_rubiks_bis.BLOCK[0][col];
+                  }
+              }
+          }
+
         case LEFT:
             break;
         case FRONT:

@@ -16,16 +16,34 @@ int main (){
 //        printf("c'est bon");
 //    }
 //    printf("%s", select_caption(Rubiks[0].BLOCK[0][0]));
-    display_rubiks(Rubiks);
+    //display_rubiks(Rubiks);
     blank_rubiks(Rubiks);
-    fill_rubiks(Rubiks,0,0,0,R);
-    fill_rubiks(Rubiks,0,0,1,G);
-    fill_rubiks(Rubiks,0,0,2,B);
-    fill_rubiks(Rubiks,0,1,0,B);
-    fill_rubiks(Rubiks,0,0,2,O);
-    fill_rubiks(Rubiks,0,2,0,G);
-    fill_rubiks(Rubiks,0,2,1,W);
-    fill_rubiks(Rubiks,0,2,2,Y);
+    fill_rubiks(Rubiks,0,0,0,O);
+    fill_rubiks(Rubiks,0,0,1,B);
+    fill_rubiks(Rubiks,0,0,2,R);
+    fill_rubiks(Rubiks,0,1,0,G);
+    fill_rubiks(Rubiks,0,1,2,Y);
+    fill_rubiks(Rubiks,0,2,0,O);
+    fill_rubiks(Rubiks,0,2,1,B);
+    fill_rubiks(Rubiks,0,2,2,R);
+
+    fill_rubiks(Rubiks,1,0,0,O);
+    fill_rubiks(Rubiks,1,0,1,O);
+    fill_rubiks(Rubiks,1,0,2,O);
+
+    fill_rubiks(Rubiks,2,0,0,G);
+    fill_rubiks(Rubiks,2,0,1,G);
+    fill_rubiks(Rubiks,2,0,2,G);
+
+    fill_rubiks(Rubiks,3,0,0,R);
+    fill_rubiks(Rubiks,3,0,1,R);
+    fill_rubiks(Rubiks,3,0,2,R);
+
+    fill_rubiks(Rubiks,4,0,0,B);
+    fill_rubiks(Rubiks,4,0,1,B);
+    fill_rubiks(Rubiks,4,0,2,B);
+
+    display_rubiks(Rubiks);
     turn_clockwise(Rubiks, UP);
     display_rubiks(Rubiks);
     return 0;
