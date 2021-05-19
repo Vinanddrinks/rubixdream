@@ -60,11 +60,36 @@ void init_rubiks(struct FACE* rubiks) {
     }
 }
 
-void display_rubiks(struct FACE* rubiks){
-    for (int i = 0; i<=3; i++){
-        c_textcolor(select_color(rubiks[0].BLOCK[0][i]));
-        printf("%s", rubiks[0].BLOCK[0][i]);
+char* select_caption(T_COLOR block_color){
+    switch(block_color){
+        case R:
+            return "R";
+        case G:
+            return "G";
+        case B:
+            return "B";
+        case W:
+            return "W";
+        case Y:
+            return "Y";
+        case O:
+            return "O";
+        case LG:
+            return "LG";
+        default:
+            break;
     }
+}
+void display_line(struct FACE* rubiks, int face, int row){
+    for (int i = 0; i < 3; i++) {
+        c_textcolor(select_color(rubiks[face].BLOCK[row][i]));
+        printf("%s ", select_caption(rubiks[face].BLOCK[row][i]));
+    }
+}
+
+void display_rubiks(struct FACE* rubiks) {
+    rubiks[4].BLOCK[2][0] = R;
+    display_line(rubiks, 4, 2);
 }
 
 

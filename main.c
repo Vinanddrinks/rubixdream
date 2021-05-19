@@ -10,7 +10,7 @@ int main (){
     //printf("hello world\n");
     //c_textcolor(12);
     //printf("welcome to Rubixdream\n");
-    struct FACE* Rubiks = CreateRubiks();
+      struct FACE* Rubiks = CreateRubiks();
     init_rubiks(Rubiks);
     if(Rubiks[0].BLOCK[0][0] == W){
         printf("c'est bon");
