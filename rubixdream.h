@@ -24,6 +24,9 @@ struct FACE* CreateRubiks();
 void init_rubiks(struct FACE* rubiks);
 void display_rubiks(struct FACE* rubiks);
 void display_line(struct FACE* rubiks, int face, int row);
+void display_middleline(struct FACE* rubiks,int line_number);
+void display_middleFaces(struct FACE* rubiks);
+void display_singleFace(struct FACE* rubiks, int face);
 
 int select_color(T_COLOR color);
 char* select_caption(T_COLOR block_color);

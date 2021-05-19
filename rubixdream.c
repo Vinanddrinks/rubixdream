@@ -88,8 +88,9 @@ void display_line(struct FACE* rubiks, int face, int row){
 }
 
 void display_rubiks(struct FACE* rubiks) {
-    rubiks[4].BLOCK[2][0] = R;
-    display_line(rubiks, 4, 2);
+    display_singleFace(rubiks, 0);
+    display_middleFaces(rubiks);
+    display_singleFace(rubiks, 5);
 }
 
 
