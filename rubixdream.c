@@ -60,7 +60,7 @@ void init_rubiks(struct FACE* rubiks) {
     }
 }
 
-void displayRubiks(struct FACE* rubiks){
+void display_rubiks(struct FACE* rubiks){
     for (int i = 0; i<=3; i++){
         c_textcolor(select_color(rubiks[0].BLOCK[0][i]));
         printf("%s", rubiks[0].BLOCK[0][i]);
