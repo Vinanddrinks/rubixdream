@@ -169,6 +169,7 @@ void turn_clockwise(struct FACE* rubiks, Type_SIDE Rotatedface){
                   }
               }
           }
+            break;
 
         case LEFT:
             break;
@@ -192,6 +193,7 @@ void turn_clockwise(struct FACE* rubiks, Type_SIDE Rotatedface){
                 rubiks[0].BLOCK[2][row] = old_rubiks_ter.BLOCK[row][2];
                 rubiks[5].BLOCK[0][row] = old_rubiks_quat.BLOCK[row][0];
             }
+            break;
         case RIGHT:
             break;
         case DOWN:
@@ -202,7 +204,7 @@ void turn_clockwise(struct FACE* rubiks, Type_SIDE Rotatedface){
                     rubiks[5].BLOCK[col][2-row] = old_rubiks.BLOCK[row][col];
                 }
             }
-            // rotating the other faces that also turn with the BACK
+//             rotating the other faces that also turn with the BACK
             old_rubiks_bis = rubiks[4];
             for (int face = 4; face >= 1; face--){
                 for (int col = 0; col < 3; col++){
@@ -215,6 +217,7 @@ void turn_clockwise(struct FACE* rubiks, Type_SIDE Rotatedface){
                     }
                 }
             }
+            break;
         case BACK:
             // rotating the values inside the main face
             old_rubiks = rubiks[4];
@@ -235,6 +238,7 @@ void turn_clockwise(struct FACE* rubiks, Type_SIDE Rotatedface){
                 rubiks[3].BLOCK[row][2] = old_rubiks_quat.BLOCK[2][row];
                 rubiks[0].BLOCK[0][row] = old_rubiks_ter.BLOCK[row][2];
             }
+            break;
         default:
             break;
     }
