@@ -17,32 +17,32 @@ int main (){
 //    }
 //    printf("%s", select_caption(Rubiks[0].BLOCK[0][0]));
     display_rubiks(Rubiks);
-    //blank_rubiks(Rubiks);
-//    fill_rubiks(Rubiks,0,0,0,W);
-//    fill_rubiks(Rubiks,0,0,1,G);
-//    fill_rubiks(Rubiks,0,0,2,O);
-//    fill_rubiks(Rubiks,0,1,0,B);
-//    fill_rubiks(Rubiks,0,1,2,W);
-//    fill_rubiks(Rubiks,0,2,0,Y);
-//    fill_rubiks(Rubiks,0,2,1,W);
-//    fill_rubiks(Rubiks,0,2,2,G);
+    blank_rubiks(Rubiks);
+    fill_rubiks(Rubiks,2,0,0,G);
+    fill_rubiks(Rubiks,2,0,1,Y);
+    fill_rubiks(Rubiks,2,0,2,O);
+    fill_rubiks(Rubiks,2,1,0,B);
+    fill_rubiks(Rubiks,2,1,2,W);
+    fill_rubiks(Rubiks,2,2,0,W);
+    fill_rubiks(Rubiks,2,2,1,G);
+    fill_rubiks(Rubiks,2,2,2,R);
 //
-//    fill_rubiks(Rubiks,1,0,0,O);
-//    fill_rubiks(Rubiks,1,0,1,O);
-//    fill_rubiks(Rubiks,1,0,2,O);
+//    fill_rubiks(Rubiks,1,2,0,B);
+//    fill_rubiks(Rubiks,1,2,1,W);
+//    fill_rubiks(Rubiks,1,2,2,Y);
 //
-//    fill_rubiks(Rubiks,2,0,0,G);
-//    fill_rubiks(Rubiks,2,0,1,G);
-//    fill_rubiks(Rubiks,2,0,2,G);
+//    fill_rubiks(Rubiks,2,2,0,B);
+//    fill_rubiks(Rubiks,2,2,1,O);
+//    fill_rubiks(Rubiks,2,2,2,G);
 //
-//    fill_rubiks(Rubiks,3,0,0,R);
-//    fill_rubiks(Rubiks,3,0,1,R);
-//    fill_rubiks(Rubiks,3,0,2,R);
+//    fill_rubiks(Rubiks,3,2,0,R);
+//    fill_rubiks(Rubiks,3,2,1,Y);
+//    fill_rubiks(Rubiks,3,2,2,W);
 //
-//    fill_rubiks(Rubiks,4,0,0,B);
-//    fill_rubiks(Rubiks,4,0,1,B);
-//    fill_rubiks(Rubiks,4,0,2,B);
-//
+//    fill_rubiks(Rubiks,4,2,0,W);
+//    fill_rubiks(Rubiks,4,2,1,B);
+//    fill_rubiks(Rubiks,4,2,2,G);
+
 //    fill_rubiks(Rubiks,1,2,0,O);
 //    fill_rubiks(Rubiks,1,2,1,O);
 //    fill_rubiks(Rubiks,1,2,2,O);
@@ -72,9 +72,11 @@ int main (){
 //    turn_clockwise(Rubiks, FRONT);
 //    turn_clockwise(Rubiks, UP);
 //    turn_clockwise(Rubiks, DOWN);
-    turn_crown(Rubiks,UP,Anticlockwise);
-    display_rubiks(Rubiks);
-    //turn_face(Rubiks,UP,Anticlockwise);
+//    display_rubiks(Rubiks);
+
+//    turn_crown(Rubiks,DOWN,Anticlockwise);
+//    display_rubiks(Rubiks);
+    turn_face(Rubiks,FRONT,Anticlockwise);
     display_rubiks(Rubiks);
     free_rubiks(Rubiks);
     return 0;

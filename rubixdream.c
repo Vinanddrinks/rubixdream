@@ -306,7 +306,6 @@ void turn_clockwise(struct FACE* rubiks, Type_SIDE Rotatedface){
 
 void turn_face(struct FACE* rubiks, Type_SIDE Rotatedface,T_SENSE sense){
     struct FACE old_rubiks;
-    printf("%d\n", rubiks[side_to_index(UP,rubiks)].BLOCK[0][0]);
     old_rubiks = rubiks[side_to_index(Rotatedface,rubiks)];
     if (sense == Clockwise){
         for (int row = 0; row<3; row++) {
@@ -317,7 +316,6 @@ void turn_face(struct FACE* rubiks, Type_SIDE Rotatedface,T_SENSE sense){
 
     }
     if(sense == Anticlockwise){
-        printf("Hello\n");
         for (int row = 0; row<3; row++) {
             for (int col = 0; col < 3; col++){
                 rubiks[side_to_index(Rotatedface,rubiks)].BLOCK[2-col][row] = old_rubiks.BLOCK[row][col];
@@ -353,27 +351,27 @@ void turn_crown(struct FACE* rubiks, Type_SIDE Rotatedface,T_SENSE sense){
                     rubiks[side_to_index(crowns_names[2],rubiks)].BLOCK[2][i] = old_rubiks[1].BLOCK[2][i];
                     break;
                 case FRONT:
-                    rubiks[side_to_index(crowns_names[0],rubiks)].BLOCK[2][i] = old_rubiks[2].BLOCK[i][2];
-                    rubiks[side_to_index(crowns_names[3],rubiks)].BLOCK[i][0] = old_rubiks[0].BLOCK[i][0];
-                    rubiks[side_to_index(crowns_names[1],rubiks)].BLOCK[0][i] = old_rubiks[3].BLOCK[i][0];
-                    rubiks[side_to_index(crowns_names[2],rubiks)].BLOCK[i][2] = old_rubiks[1].BLOCK[i][2];
+                    rubiks[side_to_index(crowns_names[0],rubiks)].BLOCK[2][2-i] = old_rubiks[2].BLOCK[i][2];
+                    rubiks[side_to_index(crowns_names[3],rubiks)].BLOCK[i][0] = old_rubiks[0].BLOCK[2][i];
+                    rubiks[side_to_index(crowns_names[1],rubiks)].BLOCK[0][2-i] = old_rubiks[3].BLOCK[i][0];
+                    rubiks[side_to_index(crowns_names[2],rubiks)].BLOCK[i][2] = old_rubiks[1].BLOCK[0][i];
                     break;
                 case BACK:
                     rubiks[side_to_index(crowns_names[0],rubiks)].BLOCK[2][i] = old_rubiks[2].BLOCK[i][0];
-                    rubiks[side_to_index(crowns_names[3],rubiks)].BLOCK[i][2] = old_rubiks[0].BLOCK[2][i];
+                    rubiks[side_to_index(crowns_names[3],rubiks)].BLOCK[2-i][2] = old_rubiks[0].BLOCK[2][i];
                     rubiks[side_to_index(crowns_names[1],rubiks)].BLOCK[0][i] = old_rubiks[3].BLOCK[i][2];
-                    rubiks[side_to_index(crowns_names[2],rubiks)].BLOCK[i][0] = old_rubiks[1].BLOCK[0][i];
+                    rubiks[side_to_index(crowns_names[2],rubiks)].BLOCK[2-i][0] = old_rubiks[1].BLOCK[0][i];
                     break;
                 case LEFT:
-                    rubiks[side_to_index(crowns_names[0],rubiks)].BLOCK[i][0] = old_rubiks[2].BLOCK[i][2];
+                    rubiks[side_to_index(crowns_names[0],rubiks)].BLOCK[2-i][0] = old_rubiks[2].BLOCK[i][2];
                     rubiks[side_to_index(crowns_names[3],rubiks)].BLOCK[i][0] = old_rubiks[0].BLOCK[i][0];
                     rubiks[side_to_index(crowns_names[1],rubiks)].BLOCK[i][0] = old_rubiks[3].BLOCK[i][0];
-                    rubiks[side_to_index(crowns_names[2],rubiks)].BLOCK[i][2] = old_rubiks[1].BLOCK[i][0];
+                    rubiks[side_to_index(crowns_names[2],rubiks)].BLOCK[2-i][2] = old_rubiks[1].BLOCK[i][0];
                     break;
                 case RIGHT:
                     rubiks[side_to_index(crowns_names[0],rubiks)].BLOCK[i][2] = old_rubiks[2].BLOCK[i][2];
-                    rubiks[side_to_index(crowns_names[3],rubiks)].BLOCK[i][0] = old_rubiks[0].BLOCK[i][2];
-                    rubiks[side_to_index(crowns_names[1],rubiks)].BLOCK[i][2] = old_rubiks[3].BLOCK[i][0];
+                    rubiks[side_to_index(crowns_names[3],rubiks)].BLOCK[2-i][0] = old_rubiks[0].BLOCK[i][2];
+                    rubiks[side_to_index(crowns_names[1],rubiks)].BLOCK[2-i][2] = old_rubiks[3].BLOCK[i][0];
                     rubiks[side_to_index(crowns_names[2],rubiks)].BLOCK[i][2] = old_rubiks[1].BLOCK[i][2];
                     break;
             }
@@ -397,27 +395,27 @@ void turn_crown(struct FACE* rubiks, Type_SIDE Rotatedface,T_SENSE sense){
                     rubiks[side_to_index(crowns_names[2],rubiks)].BLOCK[2][i] = old_rubiks[0].BLOCK[2][i];
                     break;
                 case FRONT:
-                    rubiks[side_to_index(crowns_names[0],rubiks)].BLOCK[2][i] = old_rubiks[3].BLOCK[i][2];
-                    rubiks[side_to_index(crowns_names[3],rubiks)].BLOCK[i][0] = old_rubiks[1].BLOCK[i][0];
-                    rubiks[side_to_index(crowns_names[1],rubiks)].BLOCK[0][i] = old_rubiks[2].BLOCK[i][0];
-                    rubiks[side_to_index(crowns_names[2],rubiks)].BLOCK[i][2] = old_rubiks[0].BLOCK[i][2];
+                    rubiks[side_to_index(crowns_names[0],rubiks)].BLOCK[2][i] = old_rubiks[3].BLOCK[i][0];
+                    rubiks[side_to_index(crowns_names[3],rubiks)].BLOCK[i][0] = old_rubiks[1].BLOCK[0][2-i];
+                    rubiks[side_to_index(crowns_names[1],rubiks)].BLOCK[0][i] = old_rubiks[2].BLOCK[i][2];
+                    rubiks[side_to_index(crowns_names[2],rubiks)].BLOCK[i][2] = old_rubiks[0].BLOCK[2][2-i];
                     break;
                 case BACK:
-                    rubiks[side_to_index(crowns_names[0],rubiks)].BLOCK[2][i] = old_rubiks[3].BLOCK[i][0];
-                    rubiks[side_to_index(crowns_names[3],rubiks)].BLOCK[i][2] = old_rubiks[1].BLOCK[2][i];
-                    rubiks[side_to_index(crowns_names[1],rubiks)].BLOCK[0][i] = old_rubiks[2].BLOCK[i][2];
-                    rubiks[side_to_index(crowns_names[2],rubiks)].BLOCK[i][0] = old_rubiks[0].BLOCK[0][i];
+                    rubiks[side_to_index(crowns_names[0],rubiks)].BLOCK[2][2-i] = old_rubiks[3].BLOCK[i][2];
+                    rubiks[side_to_index(crowns_names[3],rubiks)].BLOCK[i][2] = old_rubiks[1].BLOCK[0][i];
+                    rubiks[side_to_index(crowns_names[1],rubiks)].BLOCK[0][2-i] = old_rubiks[2].BLOCK[i][0];
+                    rubiks[side_to_index(crowns_names[2],rubiks)].BLOCK[i][0] = old_rubiks[0].BLOCK[2][i];
                     break;
                 case LEFT:
-                    rubiks[side_to_index(crowns_names[0],rubiks)].BLOCK[i][0] = old_rubiks[3].BLOCK[i][2];
+                    rubiks[side_to_index(crowns_names[0],rubiks)].BLOCK[i][0] = old_rubiks[3].BLOCK[i][0];
                     rubiks[side_to_index(crowns_names[3],rubiks)].BLOCK[i][0] = old_rubiks[1].BLOCK[i][0];
-                    rubiks[side_to_index(crowns_names[1],rubiks)].BLOCK[i][0] = old_rubiks[2].BLOCK[i][0];
-                    rubiks[side_to_index(crowns_names[2],rubiks)].BLOCK[i][2] = old_rubiks[0].BLOCK[i][0];
+                    rubiks[side_to_index(crowns_names[1],rubiks)].BLOCK[2-i][0] = old_rubiks[2].BLOCK[i][2];
+                    rubiks[side_to_index(crowns_names[2],rubiks)].BLOCK[2-i][2] = old_rubiks[0].BLOCK[i][0];
                     break;
                 case RIGHT:
-                    rubiks[side_to_index(crowns_names[0],rubiks)].BLOCK[i][2] = old_rubiks[3].BLOCK[i][2];
-                    rubiks[side_to_index(crowns_names[3],rubiks)].BLOCK[i][0] = old_rubiks[1].BLOCK[i][2];
-                    rubiks[side_to_index(crowns_names[1],rubiks)].BLOCK[i][2] = old_rubiks[2].BLOCK[i][0];
+                    rubiks[side_to_index(crowns_names[0],rubiks)].BLOCK[2-i][2] = old_rubiks[3].BLOCK[i][0];
+                    rubiks[side_to_index(crowns_names[3],rubiks)].BLOCK[2-i][0] = old_rubiks[1].BLOCK[i][2];
+                    rubiks[side_to_index(crowns_names[1],rubiks)].BLOCK[i][2] = old_rubiks[2].BLOCK[i][2];
                     rubiks[side_to_index(crowns_names[2],rubiks)].BLOCK[i][2] = old_rubiks[0].BLOCK[i][2];
                     break;
             }

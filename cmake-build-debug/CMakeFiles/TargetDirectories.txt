@@ -1,3 +1,0 @@
-C:/Users/Vinanddrinks/CLionProjects/rubixdream/cmake-build-debug/CMakeFiles/rubixdream.dir
-C:/Users/Vinanddrinks/CLionProjects/rubixdream/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Vinanddrinks/CLionProjects/rubixdream/cmake-build-debug/CMakeFiles/rebuild_cache.dir
