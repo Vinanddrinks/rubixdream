@@ -10,6 +10,7 @@
 
 typedef enum{FRONT, BACK, UP, DOWN, RIGHT, LEFT }Type_SIDE;
 typedef enum{W, O, G, R, B, Y, LG}T_COLOR;
+typedef enum{Clockwise,Anticlockwise}T_SENSE;
 
 
 //structures
@@ -34,17 +35,20 @@ void display_middleline(struct FACE* rubiks,int line_number);
 void display_middleFaces(struct FACE* rubiks);
 void display_singleFace(struct FACE* rubiks, int face);
 
-// Rubiks manipulations functions
+//Rubiks manipulations functions
 
 void blank_rubiks(struct FACE* rubiks);
 void fill_rubiks(struct FACE* rubiks, int face,int row,int collumn, T_COLOR color);
 void turn_clockwise(struct FACE* rubiks, Type_SIDE face);
+void turn_face(struct FACE* rubiks, Type_SIDE Rotatedface,T_SENSE sense);
+void turn_crown(struct FACE* rubiks, Type_SIDE Rotatedface,T_SENSE sense);
 
 // structure manipulations fonction
 
 int select_color(T_COLOR color);
 char* select_caption(T_COLOR block_color);
 int side_to_index(Type_SIDE face, struct FACE* rubiks);
+void crown_namegiver(Type_SIDE* CRlist,Type_SIDE center_face);
 
 // Free
 void free_rubiks(struct FACE* rubiks);

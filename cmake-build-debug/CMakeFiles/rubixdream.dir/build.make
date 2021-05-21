@@ -52,19 +52,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2021.1.1\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = C:\Users\Vinanddrinks\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\211.7142.21\bin\cmake\win\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2021.1.1\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = C:\Users\Vinanddrinks\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\211.7142.21\bin\cmake\win\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Admin\CLionProjects\rubixdream
+CMAKE_SOURCE_DIR = C:\Users\Vinanddrinks\CLionProjects\rubixdream
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Admin\CLionProjects\rubixdream\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\Vinanddrinks\CLionProjects\rubixdream\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/rubixdream.dir/depend.make
@@ -78,44 +78,44 @@ include CMakeFiles/rubixdream.dir/flags.make
 CMakeFiles/rubixdream.dir/conio.c.obj: CMakeFiles/rubixdream.dir/flags.make
 CMakeFiles/rubixdream.dir/conio.c.obj: CMakeFiles/rubixdream.dir/includes_C.rsp
 CMakeFiles/rubixdream.dir/conio.c.obj: ../conio.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\rubixdream\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/rubixdream.dir/conio.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\rubixdream.dir\conio.c.obj -c C:\Users\Admin\CLionProjects\rubixdream\conio.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Vinanddrinks\CLionProjects\rubixdream\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/rubixdream.dir/conio.c.obj"
+	E:\Jetbrains\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\rubixdream.dir\conio.c.obj -c C:\Users\Vinanddrinks\CLionProjects\rubixdream\conio.c
 
 CMakeFiles/rubixdream.dir/conio.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/rubixdream.dir/conio.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Admin\CLionProjects\rubixdream\conio.c > CMakeFiles\rubixdream.dir\conio.c.i
+	E:\Jetbrains\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Vinanddrinks\CLionProjects\rubixdream\conio.c > CMakeFiles\rubixdream.dir\conio.c.i
 
 CMakeFiles/rubixdream.dir/conio.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/rubixdream.dir/conio.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Admin\CLionProjects\rubixdream\conio.c -o CMakeFiles\rubixdream.dir\conio.c.s
+	E:\Jetbrains\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Vinanddrinks\CLionProjects\rubixdream\conio.c -o CMakeFiles\rubixdream.dir\conio.c.s
 
 CMakeFiles/rubixdream.dir/main.c.obj: CMakeFiles/rubixdream.dir/flags.make
 CMakeFiles/rubixdream.dir/main.c.obj: CMakeFiles/rubixdream.dir/includes_C.rsp
 CMakeFiles/rubixdream.dir/main.c.obj: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\rubixdream\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/rubixdream.dir/main.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\rubixdream.dir\main.c.obj -c C:\Users\Admin\CLionProjects\rubixdream\main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Vinanddrinks\CLionProjects\rubixdream\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/rubixdream.dir/main.c.obj"
+	E:\Jetbrains\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\rubixdream.dir\main.c.obj -c C:\Users\Vinanddrinks\CLionProjects\rubixdream\main.c
 
 CMakeFiles/rubixdream.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/rubixdream.dir/main.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Admin\CLionProjects\rubixdream\main.c > CMakeFiles\rubixdream.dir\main.c.i
+	E:\Jetbrains\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Vinanddrinks\CLionProjects\rubixdream\main.c > CMakeFiles\rubixdream.dir\main.c.i
 
 CMakeFiles/rubixdream.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/rubixdream.dir/main.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Admin\CLionProjects\rubixdream\main.c -o CMakeFiles\rubixdream.dir\main.c.s
+	E:\Jetbrains\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Vinanddrinks\CLionProjects\rubixdream\main.c -o CMakeFiles\rubixdream.dir\main.c.s
 
 CMakeFiles/rubixdream.dir/rubixdream.c.obj: CMakeFiles/rubixdream.dir/flags.make
 CMakeFiles/rubixdream.dir/rubixdream.c.obj: CMakeFiles/rubixdream.dir/includes_C.rsp
 CMakeFiles/rubixdream.dir/rubixdream.c.obj: ../rubixdream.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\rubixdream\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/rubixdream.dir/rubixdream.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\rubixdream.dir\rubixdream.c.obj -c C:\Users\Admin\CLionProjects\rubixdream\rubixdream.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Vinanddrinks\CLionProjects\rubixdream\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/rubixdream.dir/rubixdream.c.obj"
+	E:\Jetbrains\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\rubixdream.dir\rubixdream.c.obj -c C:\Users\Vinanddrinks\CLionProjects\rubixdream\rubixdream.c
 
 CMakeFiles/rubixdream.dir/rubixdream.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/rubixdream.dir/rubixdream.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Admin\CLionProjects\rubixdream\rubixdream.c > CMakeFiles\rubixdream.dir\rubixdream.c.i
+	E:\Jetbrains\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Vinanddrinks\CLionProjects\rubixdream\rubixdream.c > CMakeFiles\rubixdream.dir\rubixdream.c.i
 
 CMakeFiles/rubixdream.dir/rubixdream.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/rubixdream.dir/rubixdream.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Admin\CLionProjects\rubixdream\rubixdream.c -o CMakeFiles\rubixdream.dir\rubixdream.c.s
+	E:\Jetbrains\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Vinanddrinks\CLionProjects\rubixdream\rubixdream.c -o CMakeFiles\rubixdream.dir\rubixdream.c.s
 
 # Object files for target rubixdream
 rubixdream_OBJECTS = \
@@ -133,7 +133,7 @@ rubixdream.exe: CMakeFiles/rubixdream.dir/build.make
 rubixdream.exe: CMakeFiles/rubixdream.dir/linklibs.rsp
 rubixdream.exe: CMakeFiles/rubixdream.dir/objects1.rsp
 rubixdream.exe: CMakeFiles/rubixdream.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Admin\CLionProjects\rubixdream\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable rubixdream.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Vinanddrinks\CLionProjects\rubixdream\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable rubixdream.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\rubixdream.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -146,6 +146,6 @@ CMakeFiles/rubixdream.dir/clean:
 .PHONY : CMakeFiles/rubixdream.dir/clean
 
 CMakeFiles/rubixdream.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\Admin\CLionProjects\rubixdream C:\Users\Admin\CLionProjects\rubixdream C:\Users\Admin\CLionProjects\rubixdream\cmake-build-debug C:\Users\Admin\CLionProjects\rubixdream\cmake-build-debug C:\Users\Admin\CLionProjects\rubixdream\cmake-build-debug\CMakeFiles\rubixdream.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\Vinanddrinks\CLionProjects\rubixdream C:\Users\Vinanddrinks\CLionProjects\rubixdream C:\Users\Vinanddrinks\CLionProjects\rubixdream\cmake-build-debug C:\Users\Vinanddrinks\CLionProjects\rubixdream\cmake-build-debug C:\Users\Vinanddrinks\CLionProjects\rubixdream\cmake-build-debug\CMakeFiles\rubixdream.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rubixdream.dir/depend
 

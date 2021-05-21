@@ -6,19 +6,27 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Admin/CLionProjects/rubixdream/conio.h
+C:/Users/Vinanddrinks/CLionProjects/rubixdream/conio.h
 
-C:/Users/Admin/CLionProjects/rubixdream/rubixdream.c
+C:/Users/Vinanddrinks/CLionProjects/rubixdream/main.c
 rubixdream.h
-C:/Users/Admin/CLionProjects/rubixdream/rubixdream.h
+C:/Users/Vinanddrinks/CLionProjects/rubixdream/rubixdream.h
+conio.h
+C:/Users/Vinanddrinks/CLionProjects/rubixdream/conio.h
+stdio.h
+-
+
+C:/Users/Vinanddrinks/CLionProjects/rubixdream/rubixdream.c
+rubixdream.h
+C:/Users/Vinanddrinks/CLionProjects/rubixdream/rubixdream.h
 stdio.h
 -
 stdlib.h
 -
 conio.h
-C:/Users/Admin/CLionProjects/rubixdream/conio.h
+C:/Users/Vinanddrinks/CLionProjects/rubixdream/conio.h
 
-C:/Users/Admin/CLionProjects/rubixdream/rubixdream.h
+C:/Users/Vinanddrinks/CLionProjects/rubixdream/rubixdream.h
 stdio.h
 -
 stdlib.h
