@@ -172,6 +172,24 @@ void turn_clockwise(struct FACE* rubiks, Type_SIDE Rotatedface){
             break;
 
         case LEFT:
+            // rotating the values inside the main face
+            old_rubiks = rubiks[1];
+            for (int row = 0; row<3; row++) {
+                for (int col = 0; col < 3; col++){
+                    rubiks[1].BLOCK[col][2-row] = old_rubiks.BLOCK[row][col];
+                }
+            }
+            // adjacent faces:
+            old_rubiks = rubiks[0];
+            old_rubiks_bis = rubiks[2];
+            old_rubiks_ter = rubiks[5];
+            old_rubiks_quat = rubiks[4];
+            for (int row = 0; row < 3; row++) {
+                rubiks[0].BLOCK[row][0] = old_rubiks_quat.BLOCK[row][2];
+                rubiks[2].BLOCK[row][0] = old_rubiks.BLOCK[row][0];
+                rubiks[5].BLOCK[row][0] = old_rubiks_bis.BLOCK[row][0];
+                rubiks[4].BLOCK[row][2] = old_rubiks_ter.BLOCK[row][0];
+            }
             break;
         case FRONT:
             // rotating the values inside the main face
@@ -195,6 +213,24 @@ void turn_clockwise(struct FACE* rubiks, Type_SIDE Rotatedface){
             }
             break;
         case RIGHT:
+            // rotating the values inside the main face
+            old_rubiks = rubiks[3];
+            for (int row = 0; row<3; row++) {
+                for (int col = 0; col < 3; col++){
+                    rubiks[3].BLOCK[col][2-row] = old_rubiks.BLOCK[row][col];
+                }
+            }
+            // adjacent faces:
+            old_rubiks = rubiks[0];
+            old_rubiks_bis = rubiks[2];
+            old_rubiks_ter = rubiks[5];
+            old_rubiks_quat = rubiks[4];
+            for (int row = 0; row < 3; row++) {
+                rubiks[0].BLOCK[row][2] = old_rubiks_bis.BLOCK[row][2];
+                rubiks[2].BLOCK[row][2] = old_rubiks_ter.BLOCK[row][2];
+                rubiks[5].BLOCK[row][2] = old_rubiks_quat.BLOCK[row][0];
+                rubiks[4].BLOCK[row][0] = old_rubiks.BLOCK[row][2];
+            }
             break;
         case DOWN:
             // rotating the values inside the main face
