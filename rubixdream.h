@@ -51,6 +51,10 @@ char* select_caption(T_COLOR block_color);
 int side_to_index(Type_SIDE face, struct FACE* rubiks);
 void crown_namegiver(Type_SIDE* CRlist,Type_SIDE center_face);
 
+// Solving Algorithms
+
+void WhiteDaisy(struct FACE* rubiks);
+
 // Free
 void free_rubiks(struct FACE* rubiks);
 
