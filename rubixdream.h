@@ -39,9 +39,9 @@ void display_singleFace(struct FACE* rubiks, int face);
 
 void blank_rubiks(struct FACE* rubiks);
 void fill_rubiks(struct FACE* rubiks, int face,int row,int collumn, T_COLOR color);
-void turn_clockwise(struct FACE* rubiks, Type_SIDE face);
 void turn_face(struct FACE* rubiks, Type_SIDE Rotatedface,T_SENSE sense);
 void turn_crown(struct FACE* rubiks, Type_SIDE Rotatedface,T_SENSE sense);
+void turn_rubiks(struct FACE* rubiks,Type_SIDE face,T_SENSE sense);
 
 // structure manipulations fonction
 

@@ -16,16 +16,16 @@ int main (){
 //        printf("c'est bon");
 //    }
 //    printf("%s", select_caption(Rubiks[0].BLOCK[0][0]));
-    display_rubiks(Rubiks);
-    blank_rubiks(Rubiks);
-    fill_rubiks(Rubiks,2,0,0,G);
-    fill_rubiks(Rubiks,2,0,1,Y);
-    fill_rubiks(Rubiks,2,0,2,O);
-    fill_rubiks(Rubiks,2,1,0,B);
-    fill_rubiks(Rubiks,2,1,2,W);
-    fill_rubiks(Rubiks,2,2,0,W);
-    fill_rubiks(Rubiks,2,2,1,G);
-    fill_rubiks(Rubiks,2,2,2,R);
+//    display_rubiks(Rubiks);
+//    blank_rubiks(Rubiks);
+//    fill_rubiks(Rubiks,2,0,0,G);
+//    fill_rubiks(Rubiks,2,0,1,Y);
+//    fill_rubiks(Rubiks,2,0,2,O);
+//    fill_rubiks(Rubiks,2,1,0,B);
+//    fill_rubiks(Rubiks,2,1,2,W);
+//    fill_rubiks(Rubiks,2,2,0,W);
+//    fill_rubiks(Rubiks,2,2,1,G);
+//    fill_rubiks(Rubiks,2,2,2,R);
 //
 //    fill_rubiks(Rubiks,1,2,0,B);
 //    fill_rubiks(Rubiks,1,2,1,W);
@@ -76,7 +76,7 @@ int main (){
 
 //    turn_crown(Rubiks,DOWN,Anticlockwise);
 //    display_rubiks(Rubiks);
-    turn_face(Rubiks,FRONT,Anticlockwise);
+    turn_rubiks(Rubiks,UP,Clockwise);
     display_rubiks(Rubiks);
     free_rubiks(Rubiks);
     return 0;
