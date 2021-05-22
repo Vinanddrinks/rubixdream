@@ -307,11 +307,11 @@ void turn_rubiks(struct FACE* rubiks,Type_SIDE face,T_SENSE sense){
 // 1. White Daisy
 
 void WhiteDaisy(struct FACE* rubiks) {
-//    int face_in_pos = 0;
+    int face_in_pos = 0;
 //    // we put all the available off-middle in position 1/0
 //    do {
-//        for (int face = 0; face<5; face++) {
-//            switch (face){
+//        for (int face = 0; face < 5; face++) {
+//            switch (face) {
 //                case 0:
 //                    if (rubiks[0].BLOCK[0][1] == W) {
 //                        turn_rubiks(rubiks, rubiks[0].SIDE, Anticlockwise);
@@ -321,11 +321,12 @@ void WhiteDaisy(struct FACE* rubiks) {
 //                    }
 //                    if (rubiks[0].BLOCK[2][1] == W) {
 //                        turn_rubiks(rubiks, rubiks[0].SIDE, Clockwise);
-//                    break;
-//                case 1:
-//                    while (rubiks[5].BLOCK[1][0] == W) {
-//                        turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
 //                    }
+//                        break;
+//                        case 1:
+//                            while (rubiks[5].BLOCK[1][0] == W) {
+//                                turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
+//                            }
 //                        if (rubiks[1].BLOCK[0][1] == W) {
 //                            turn_rubiks(rubiks, rubiks[1].SIDE, Anticlockwise);
 //                        }
@@ -335,11 +336,11 @@ void WhiteDaisy(struct FACE* rubiks) {
 //                        if (rubiks[1].BLOCK[2][1] == W) {
 //                            turn_rubiks(rubiks, rubiks[1].SIDE, Clockwise);
 //                        }
-//                    break;
-//                case 2:
-//                    while(rubiks[5].BLOCK[0][1] == W){
-//                        turn_rubiks(rubiks, rubiks[5].SIDE,Clockwise);
-//                    }
+//                        break;
+//                        case 2:
+//                            while (rubiks[5].BLOCK[0][1] == W) {
+//                                turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
+//                            }
 //                        if (rubiks[2].BLOCK[0][1] == W) {
 //                            turn_rubiks(rubiks, rubiks[2].SIDE, Anticlockwise);
 //                        }
@@ -348,107 +349,111 @@ void WhiteDaisy(struct FACE* rubiks) {
 //                        }
 //                        if (rubiks[2].BLOCK[2][1] == W) {
 //                            turn_rubiks(rubiks, rubiks[2].SIDE, Clockwise);
-//                    break;
-//                case 3:
-//                    while(rubiks[5].BLOCK[1][2] == W){
-//                        turn_rubiks(rubiks, rubiks[5].SIDE,Clockwise);
+//                        }
+//                        break;
+//                        case 3:
+//                            while (rubiks[5].BLOCK[1][2] == W) {
+//                                turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
+//                            }
+//                        if (rubiks[3].BLOCK[0][1] == W) {
+//                            turn_rubiks(rubiks, rubiks[3].SIDE, Anticlockwise);
+//                        }
+//                        if (rubiks[3].BLOCK[1][2] == W) {
+//                            half_turn(rubiks, rubiks[3].SIDE);
+//                        }
+//                        if (rubiks[3].BLOCK[2][1] == W) {
+//                            turn_rubiks(rubiks, rubiks[3].SIDE, Clockwise);
+//                        }
+//                        break;
+//                        case 4:
+//                            while (rubiks[5].BLOCK[2][1] == W) {
+//                                turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
+//                            }
+//                        if (rubiks[4].BLOCK[0][1] == W) {
+//                            turn_rubiks(rubiks, rubiks[4].SIDE, Anticlockwise);
+//                        }
+//                        if (rubiks[4].BLOCK[1][2] == W) {
+//                            half_turn(rubiks, rubiks[4].SIDE);
+//                        }
+//                        if (rubiks[4].BLOCK[2][1] == W) {
+//                            turn_rubiks(rubiks, rubiks[4].SIDE, Clockwise);
+//                        }
+//                        break;
+//                        default:
+//                            break;
 //                    }
-//                            if (rubiks[3].BLOCK[0][1] == W) {
-//                                turn_rubiks(rubiks, rubiks[3].SIDE, Anticlockwise);
-//                            }
-//                            if (rubiks[3].BLOCK[1][2] == W) {
-//                                half_turn(rubiks, rubiks[3].SIDE);
-//                            }
-//                            if (rubiks[3].BLOCK[2][1] == W) {
-//                                turn_rubiks(rubiks, rubiks[3].SIDE, Clockwise);
-//                            }
-//                    break;
-//                case 4:
-//                    while (rubiks[5].BLOCK[2][1] == W) {
-//                        turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
+//                    if (face == 0) {
+//                        if (rubiks[face].BLOCK[0][1] == W) {
+//                            turn_rubiks(rubiks, rubiks[face].SIDE, Anticlockwise);
+//                        }
+//                        if (rubiks[face].BLOCK[1][2] == W) {
+//                            half_turn(rubiks, rubiks[face].SIDE);
+//                        }
+//                        if (rubiks[face].BLOCK[2][1] == W) {
+//                            turn_rubiks(rubiks, rubiks[face].SIDE, Clockwise);
+//                        }
+//                    } else if (face == 1) {
+//                        while (rubiks[5].BLOCK[1][0] == W) {
+//                            turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
+//                        }
+//                        if (rubiks[face].BLOCK[0][1] == W) {
+//                            turn_rubiks(rubiks, rubiks[face].SIDE, Anticlockwise);
+//                        }
+//                        if (rubiks[face].BLOCK[1][2] == W) {
+//                            half_turn(rubiks, rubiks[face].SIDE);
+//                        }
+//                        if (rubiks[face].BLOCK[2][1] == W) {
+//                            turn_rubiks(rubiks, rubiks[face].SIDE, Clockwise);
+//                        }
+//                    } else {
+//                        while (rubiks[5].BLOCK[1][0] == W) {
+//                            turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
+//                        }
+//                        if (rubiks[face].BLOCK[0][1] == W) {
+//                            turn_rubiks(rubiks, rubiks[face].SIDE, Anticlockwise);
+//                        }
+//                        if (rubiks[face].BLOCK[1][2] == W) {
+//                            half_turn(rubiks, rubiks[face].SIDE);
+//                        }
+//                        if (rubiks[face].BLOCK[2][1] == W) {
+//                            turn_rubiks(rubiks, rubiks[face].SIDE, Clockwise);
+//                        }
 //                    }
-//                            if (rubiks[4].BLOCK[0][1] == W) {
-//                                turn_rubiks(rubiks, rubiks[4].SIDE, Anticlockwise);
-//                            }
-//                            if (rubiks[4].BLOCK[1][2] == W) {
-//                                half_turn(rubiks, rubiks[4].SIDE);
-//                            }
-//                            if (rubiks[4].BLOCK[2][1] == W) {
-//                                turn_rubiks(rubiks, rubiks[4].SIDE, Clockwise);
-//                            }
-//                    break;
-//                default:
-//                    break;
 //            }
-//            if (face == 0) {
-//                if (rubiks[face].BLOCK[0][1] == W) {
-//                    turn_rubiks(rubiks, rubiks[face].SIDE, Anticlockwise);
-//                }
-//                if (rubiks[face].BLOCK[1][2] == W) {
-//                    half_turn(rubiks, rubiks[face].SIDE);
-//                }
-//                if (rubiks[face].BLOCK[2][1] == W) {
-//                    turn_rubiks(rubiks, rubiks[face].SIDE, Clockwise);
-//                }
-//            }else if(face==1){
+////         Check if the yellow face spot is empty, if not we rotate the face until it is
+//            if (rubiks[0].BLOCK[1][0] == W) {
 //                while (rubiks[5].BLOCK[1][0] == W) {
 //                    turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
 //                }
-//                if (rubiks[face].BLOCK[0][1] == W) {
-//                    turn_rubiks(rubiks, rubiks[face].SIDE, Anticlockwise);
+//                half_turn(rubiks, rubiks[1].SIDE);
+//            }
+//            if (rubiks[1].BLOCK[1][0] == W) {
+//                while (rubiks[5].BLOCK[2][1] == W) {
+//                    turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
 //                }
-//                if (rubiks[face].BLOCK[1][2] == W) {
-//                    half_turn(rubiks, rubiks[face].SIDE);
-//                }
-//                if (rubiks[face].BLOCK[2][1] == W) {
-//                    turn_rubiks(rubiks, rubiks[face].SIDE, Clockwise);
-//                }
-//            }else{
+//                turn_rubiks(rubiks, rubiks[4].SIDE, Clockwise);
+//            }
+//            if (rubiks[2].BLOCK[1][0] == W) {
 //                while (rubiks[5].BLOCK[1][0] == W) {
 //                    turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
-//                if (rubiks[face].BLOCK[0][1] == W) {
-//                    turn_rubiks(rubiks, rubiks[face].SIDE, Anticlockwise);
 //                }
-//                if (rubiks[face].BLOCK[1][2] == W) {
-//                    half_turn(rubiks, rubiks[face].SIDE);
+//                turn_rubiks(rubiks, rubiks[1].SIDE, Clockwise);
+//            }
+//            if (rubiks[3].BLOCK[1][0] == W) {
+//                while (rubiks[5].BLOCK[0][1] == W) {
+//                    turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
 //                }
-//                if (rubiks[face].BLOCK[2][1] == W) {
-//                    turn_rubiks(rubiks, rubiks[face].SIDE, Clockwise);
+//                turn_rubiks(rubiks, rubiks[2].SIDE, Clockwise);
+//            }
+//            if (rubiks[4].BLOCK[1][0] == W) {
+//                while (rubiks[5].BLOCK[1][2] == W) {
+//                    turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
 //                }
+//                turn_rubiks(rubiks, rubiks[3].SIDE, Clockwise);
 //            }
-//        }
-        // Check if the yellow face spot is empty, if not we rotate the face until it is
-//        if (rubiks[0].BLOCK[1][0] == W) {
-//            while (rubiks[5].BLOCK[1][0] == W) {
-//                turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
-//            }
-//            half_turn(rubiks, rubiks[1].SIDE);
-//        }
-//        if (rubiks[1].BLOCK[1][0] == W){
-//            while(rubiks[5].BLOCK[2][1] == W){
-//                turn_rubiks(rubiks, rubiks[5].SIDE,Clockwise);
-//            }
-//            turn_rubiks(rubiks, rubiks[4].SIDE, Clockwise);
-//        }
-//        if (rubiks[2].BLOCK[1][0] == W){
-//            while(rubiks[5].BLOCK[1][0] == W){
-//                turn_rubiks(rubiks, rubiks[5].SIDE,Clockwise);
-//            }
-//            turn_rubiks(rubiks, rubiks[1].SIDE, Clockwise);
-//        }
-//        if (rubiks[3].BLOCK[1][0] == W){
-//            while(rubiks[5].BLOCK[0][1] == W){
-//                turn_rubiks(rubiks, rubiks[5].SIDE,Clockwise);
-//            }
-//            turn_rubiks(rubiks, rubiks[2].SIDE, Clockwise);
-//        }
-//        if (rubiks[4].BLOCK[1][0] == W) {
-//            while (rubiks[5].BLOCK[1][2] == W) {
-//                turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
-//            }
-//            turn_rubiks(rubiks, rubiks[3].SIDE, Clockwise);
-//        }
-//    }while(rubiks[5].BLOCK[0][1]!=W && rubiks[5].BLOCK[1][0]!=W && rubiks[5].BLOCK[1][2]!=W && rubiks[5].BLOCK[2][1]!=W);
+//
+//    }while (rubiks[5].BLOCK[0][1] != W && rubiks[5].BLOCK[1][0] != W && rubiks[5].BLOCK[1][2] != W &&
+//               rubiks[5].BLOCK[2][1] != W);
 Type_SIDE orderedface[5]={LEFT,FRONT,RIGHT,BACK,UP};
     do{
         for(int i = 0; i<5;i++){
@@ -494,9 +499,15 @@ Type_SIDE orderedface[5]={LEFT,FRONT,RIGHT,BACK,UP};
             }
             turn_rubiks(rubiks,RIGHT,Clockwise);
         }
-
-
-    }while(rubiks[5].BLOCK[0][1] != W || rubiks[5].BLOCK[1][0] != W || rubiks[5].BLOCK[2][1] != W || rubiks[5].BLOCK[1][2] != W);
+        face_in_pos = 0;
+        for (int i =0; i<3; i++){
+            for (int j = 0; j<3; j++){
+                if ((rubiks[5].BLOCK[i][j] == W) && ((i == 1)||(j==1))){
+                    face_in_pos++;
+                }
+            }
+        }
+    }while(face_in_pos != 4);
 }
 
 // 2. White Cross
