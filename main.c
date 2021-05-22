@@ -76,7 +76,10 @@ int main (){
 
 //    turn_crown(Rubiks,DOWN,Anticlockwise);
 //    display_rubiks(Rubiks);
-    turn_rubiks(Rubiks,UP,Clockwise);
+//    half_turn(Rubiks,FRONT);
+    random_rubiks(Rubiks,1200);
+    display_rubiks(Rubiks);
+    WhiteDaisy(Rubiks);
     display_rubiks(Rubiks);
     free_rubiks(Rubiks);
     return 0;

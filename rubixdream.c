@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "conio.h"
+#include <time.h>
 
 // Initializing functions
 
@@ -291,6 +292,10 @@ void turn_crown(struct FACE* rubiks, Type_SIDE Rotatedface,T_SENSE sense){
 
 
 }
+void half_turn(struct FACE* rubiks,Type_SIDE Rface){
+    turn_rubiks(rubiks,Rface,Clockwise);
+    turn_rubiks(rubiks,Rface,Clockwise);
+}
 void turn_rubiks(struct FACE* rubiks,Type_SIDE face,T_SENSE sense){
     turn_face(rubiks,face,sense);
     turn_crown(rubiks,face,sense);
@@ -302,5 +307,16 @@ void turn_rubiks(struct FACE* rubiks,Type_SIDE face,T_SENSE sense){
 void free_rubiks(struct FACE* rubiks){
     free(rubiks);
 }
+//random function
+void random_rubiks(struct FACE* rubik,int nbrmove){
+    Type_SIDE side;
+    T_SENSE sense;
+    srand(time(NULL));
+    int r1,r2;
 
-
+    for(int i = 0; i < nbrmove; i ++){
+        side = (Type_SIDE)(rand()%6);
+        sense = (T_SENSE)(rand()%2);
+        turn_rubiks(rubik,side,sense);
+    }
+}

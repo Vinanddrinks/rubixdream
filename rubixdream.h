@@ -42,6 +42,7 @@ void fill_rubiks(struct FACE* rubiks, int face,int row,int collumn, T_COLOR colo
 void turn_face(struct FACE* rubiks, Type_SIDE Rotatedface,T_SENSE sense);
 void turn_crown(struct FACE* rubiks, Type_SIDE Rotatedface,T_SENSE sense);
 void turn_rubiks(struct FACE* rubiks,Type_SIDE face,T_SENSE sense);
+void half_turn(struct FACE* rubiks,Type_SIDE Rface);
 
 // structure manipulations fonction
 
@@ -53,5 +54,7 @@ void crown_namegiver(Type_SIDE* CRlist,Type_SIDE center_face);
 // Free
 void free_rubiks(struct FACE* rubiks);
 
+//random function
+void random_rubiks(struct FACE* rubik,int nbrmove);
 
 #endif //RUBIXDREAM_RUBIXDREAM_H
