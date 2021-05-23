@@ -11,7 +11,7 @@
 typedef enum{FRONT, BACK, UP, DOWN, RIGHT, LEFT }Type_SIDE;
 typedef enum{W, O, G, R, B, Y, LG}T_COLOR;
 typedef enum{Clockwise,Anticlockwise}T_SENSE;
-
+typedef enum{True,False}Boolean;
 
 //structures
 
