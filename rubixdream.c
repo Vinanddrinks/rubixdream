@@ -432,9 +432,10 @@ void WhiteDaisy(struct FACE* rubiks) {
 
 void WhiteCross(struct FACE* rubiks){
     int face_in_pos = 0;
+    int down_coo[4][2] = {{1,0},{0,1},{1,2},{2,1}};
     do{
         for (int face=1; face <5; face++){
-            if (rubiks[face].BLOCK[2][1]==rubiks[face].BLOCK[1][1]){
+            if ((rubiks[face].BLOCK[2][1]==rubiks[face].BLOCK[1][1])&&(rubiks[5].BLOCK[down_coo[face-1][0]][down_coo[face-1][1]]== W)){
                 half_turn(rubiks, rubiks[face].SIDE);
             }
         }
