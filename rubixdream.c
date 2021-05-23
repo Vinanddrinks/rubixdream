@@ -453,8 +453,65 @@ void WhiteCross(struct FACE* rubiks){
 // 3. First Crown
 
 void FirstCrown(struct FACE* rubiks){
+    int face_in_pos = 0;
+    Type_SIDE* adjacent_sides= calloc( 4, sizeof(Type_SIDE));
 
+    do{
+        for (int face=1; face < 6; face++){
+            crown_namegiver(adjacent_sides, rubiks[face].SIDE); //0 = UP, 1 = DOWN, 2 = LEFT; 3= RIGHT (when looking at selected face)
+            for (int i =0; i<3; i++){
+                for (int j =0; j<3; j++){
+                    if(rubiks[face].BLOCK[i][j]==W){
+                        if (face == 5){
+                            while(rubiks[face].BLOCK){}
+                        }
+                    }
+                }
+            }
+        }
 
+        // Checking if stop condition is true
+        face_in_pos = 0;
+        for (int face =1; face<5; face++) {
+            if (face == 1) {
+                for (int i = 0; i < 3; i++) {
+                    if (rubiks[0].BLOCK[i][0] == W) {
+                        if (rubiks[face].BLOCK[0][i] == rubiks[face].BLOCK[1][1]) {
+                            face_in_pos++;
+                        }
+                    }
+                }
+            }
+            if (face == 2) {
+                for (int i = 0; i < 3; i++) {
+                    if (rubiks[0].BLOCK[2][i] == W) {
+                        if (rubiks[face].BLOCK[0][i] == rubiks[face].BLOCK[1][1]) {
+                            face_in_pos++;
+                        }
+                    }
+                }
+            }
+            if (face == 3) {
+                for (int i = 0; i < 3; i++) {
+                    if (rubiks[0].BLOCK[i][2] == W) {
+                        if (rubiks[face].BLOCK[0][2 - i] == rubiks[face].BLOCK[1][1]) {
+                            face_in_pos++;
+                        }
+                    }
+                }
+            }
+            if (face == 4) {
+                for (int i = 0; i < 3; i++) {
+                    if (rubiks[0].BLOCK[0][i] == W) {
+                        if (rubiks[face].BLOCK[0][2 - i] == rubiks[face].BLOCK[1][1]) {
+                            face_in_pos++;
+                        }
+                    }
+                }
+            }
+        }
+    }while(face_in_pos != 12);
+    free(adjacent_sides);
 }
 
 // 4. Second Crown
