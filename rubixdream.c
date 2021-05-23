@@ -476,7 +476,6 @@ void random_rubiks(struct FACE* rubik,int nbrmove){
     Type_SIDE side;
     T_SENSE sense;
     srand(time(NULL));
-    int r1,r2;
 
     for(int i = 0; i < nbrmove; i ++){
         side = (Type_SIDE)(rand()%6);
