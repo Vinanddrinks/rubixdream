@@ -456,18 +456,126 @@ void WhiteCross(struct FACE* rubiks){
 void FirstCrown(struct FACE* rubiks){
     int face_in_pos = 0;
     Type_SIDE* adjacent_sides= calloc( 4, sizeof(Type_SIDE));
-
+    int down_coo[4][2] = {{0,0},{0,2},{2,0},{2,2}};
     do{
-        for (int face=1; face < 6; face++){
-            crown_namegiver(adjacent_sides, rubiks[face].SIDE); //0 = UP, 1 = DOWN, 2 = LEFT; 3= RIGHT (when looking at selected face)
-            for (int i =0; i<3; i++){
-                for (int j =0; j<3; j++){
-                    if(rubiks[face].BLOCK[i][j]==W){
-                        if (face == 5){
-                            while(rubiks[face].BLOCK){}
-                        }
+//        for (int face=1; face < 6; face++){
+//            crown_namegiver(adjacent_sides, rubiks[face].SIDE); //0 = UP, 1 = DOWN, 2 = LEFT; 3= RIGHT (when looking at selected face)
+//            for (int i =0; i<3; i++){
+//                for (int j =0; j<3; j++){
+//                    if(rubiks[face].BLOCK[i][j]==W){
+//                        if (face == 5){
+//                            while(rubiks[face].BLOCK){}
+//                        }
+//                    }
+//                }
+//            }
+//        }
+        // Cases where there are white pieces on the yellow face
+        if (rubiks[5].BLOCK[0][0]== W){
+            crown_namegiver(adjacent_sides, rubiks[5].SIDE);
+            while (rubiks[5].BLOCK[down_coo[0][0]][down_coo[0][1]]== W){
+            if (rubiks[adjacent_sides[0]].BLOCK[2][0] == rubiks[adjacent_sides[2]].BLOCK[1][1]){
+                // (F'D'FD)x3
+                for (int i = 0; i <3; i++) {
+                        turn_face(rubiks, FRONT, Anticlockwise);
+                        turn_face(rubiks, DOWN, Anticlockwise);
+                        turn_face(rubiks, FRONT, Clockwise);
+                        turn_face(rubiks, DOWN, Clockwise);
                     }
                 }
+                turn_rubiks(rubiks, DOWN, Clockwise);
+                printf("FUUUUUUCK\n");
+            }
+        }
+        if (rubiks[5].BLOCK[0][2]== W) {
+            crown_namegiver(adjacent_sides, rubiks[5].SIDE);
+            while (rubiks[5].BLOCK[down_coo[0][0]][down_coo[0][1]] == W) {
+                if (rubiks[adjacent_sides[0]].BLOCK[2][0] == rubiks[adjacent_sides[2]].BLOCK[1][1]) {
+                    // R'D'RD x 3
+                    for (int i = 0; i < 3; i++) {
+                        turn_face(rubiks, RIGHT, Anticlockwise);
+                        turn_face(rubiks, DOWN, Anticlockwise);
+                        turn_face(rubiks, RIGHT, Clockwise);
+                        turn_face(rubiks, DOWN, Clockwise);
+                    }
+                }
+                turn_rubiks(rubiks, DOWN, Clockwise);
+                printf("FUUUUUUCK\n");
+            }
+        }
+        if (rubiks[5].BLOCK[2][0]== W) {
+            crown_namegiver(adjacent_sides, rubiks[5].SIDE);
+            while (rubiks[5].BLOCK[down_coo[0][0]][down_coo[0][1]] == W) {
+                if (rubiks[adjacent_sides[0]].BLOCK[2][0] == rubiks[adjacent_sides[2]].BLOCK[1][1]) {
+                    // L'D'LD x 3
+                    for (int i = 0; i < 3; i++) {
+                        turn_face(rubiks, LEFT, Anticlockwise);
+                        turn_face(rubiks, DOWN, Anticlockwise);
+                        turn_face(rubiks, LEFT, Clockwise);
+                        turn_face(rubiks, DOWN, Clockwise);
+                    }
+                }
+                turn_rubiks(rubiks, DOWN, Clockwise);
+                printf("FUUUUUUCK\n");
+            }
+        }
+        if (rubiks[5].BLOCK[2][2]== W) {
+            crown_namegiver(adjacent_sides, rubiks[5].SIDE);
+            while (rubiks[5].BLOCK[down_coo[2][0]][down_coo[2][1]] == W) {
+                if (rubiks[adjacent_sides[0]].BLOCK[2][0] == rubiks[adjacent_sides[2]].BLOCK[1][1]) {
+                    // B'D'BD x 3
+                    for (int i = 0; i < 3; i++) {
+                        turn_face(rubiks, BACK, Anticlockwise);
+                        turn_face(rubiks, DOWN, Anticlockwise);
+                        turn_face(rubiks, BACK, Clockwise);
+                        turn_face(rubiks, DOWN, Clockwise);
+                    }
+                }
+                turn_rubiks(rubiks, DOWN, Clockwise);
+                printf("FUUUUUUCK\n");
+            }
+        }
+        // Cases where the white block is in the middle faces in position (2,2)
+        for (int face=1; face <5; face ++) {
+            crown_namegiver(adjacent_sides, rubiks[face].SIDE);
+            if (rubiks[face].BLOCK[down_coo[3][0]][down_coo[3][1]]== W) {
+                if (rubiks[adjacent_sides[3]].BLOCK[down_coo[2][0]][down_coo[2][1]] == rubiks[adjacent_sides[3]].BLOCK[1][1]) {
+                    // D'R'DR
+                        turn_face(rubiks, DOWN, Anticlockwise);
+                        turn_face(rubiks, adjacent_sides[3], Anticlockwise);
+                        turn_face(rubiks, DOWN, Clockwise);
+                        turn_face(rubiks, adjacent_sides[3], Clockwise);
+                }
+            }
+        }
+        // Cases where the white block is in the middle faces in position (2,0) R'D'RD
+        for (int face=1; face <5; face ++) {
+            crown_namegiver(adjacent_sides, rubiks[face].SIDE);
+            if (rubiks[face].BLOCK[down_coo[2][0]][down_coo[2][1]]== W) {
+                if (rubiks[adjacent_sides[2]].BLOCK[down_coo[3][0]][down_coo[3][1]] == rubiks[adjacent_sides[2]].BLOCK[1][1]) {
+                    // R'D'RD
+                        turn_face(rubiks, rubiks[face].SIDE, Anticlockwise);
+                        turn_face(rubiks, DOWN, Anticlockwise);
+                        turn_face(rubiks, rubiks[face].SIDE, Clockwise);
+                        turn_face(rubiks, DOWN, Clockwise);
+                }
+            }
+        }
+        // Cases where the white blocks are on position (0,0) & (0,2) we bring them down
+        for (int face=1; face <5; face ++) {
+            if (rubiks[face].BLOCK[down_coo[0][0]][down_coo[0][1]]== W) {
+                    turn_face(rubiks, rubiks[face].SIDE, Anticlockwise);
+                    turn_face(rubiks, DOWN, Anticlockwise);
+                    turn_face(rubiks, rubiks[face].SIDE, Clockwise);
+                    turn_face(rubiks, DOWN, Clockwise);
+            }
+        }
+        for (int face=1; face <5; face ++) {
+            if (rubiks[face].BLOCK[down_coo[1][0]][down_coo[1][1]]== W) {
+                turn_face(rubiks, rubiks[face].SIDE, Clockwise);
+                turn_face(rubiks, DOWN, Clockwise);
+                turn_face(rubiks, rubiks[face].SIDE, Anticlockwise);
+                turn_face(rubiks, DOWN, Anticlockwise);
             }
         }
 
@@ -511,6 +619,7 @@ void FirstCrown(struct FACE* rubiks){
                 }
             }
         }
+        display_rubiks(rubiks);
     }while(face_in_pos != 12);
     free(adjacent_sides);
 }
