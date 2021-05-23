@@ -387,7 +387,6 @@ void WhiteDaisy(struct FACE* rubiks) {
                 turn_rubiks(rubiks,DOWN,Clockwise);
             }
             half_turn(rubiks,LEFT);
-            display_rubiks(rubiks);
         }
 
         if (rubiks[1].BLOCK[1][0] == W){
@@ -395,14 +394,12 @@ void WhiteDaisy(struct FACE* rubiks) {
                 turn_rubiks(rubiks,DOWN,Clockwise);
             }
             turn_rubiks(rubiks,BACK,Clockwise);
-            display_rubiks(rubiks);
         }
         if (rubiks[2].BLOCK[1][0] == W){
             while (rubiks[5].BLOCK[1][0] == W ){
                 turn_rubiks(rubiks,DOWN,Clockwise);
             }
             turn_rubiks(rubiks,LEFT,Clockwise);
-            display_rubiks(rubiks);
         }
 
         if (rubiks[3].BLOCK[1][0] == W){
@@ -410,7 +407,7 @@ void WhiteDaisy(struct FACE* rubiks) {
                 turn_rubiks(rubiks,DOWN,Clockwise);
             }
             turn_rubiks(rubiks,FRONT,Clockwise);
-            display_rubiks(rubiks);
+
         }
 
         if (rubiks[4].BLOCK[1][0] == W){
@@ -418,7 +415,7 @@ void WhiteDaisy(struct FACE* rubiks) {
                 turn_rubiks(rubiks,DOWN,Clockwise);
             }
             turn_rubiks(rubiks,RIGHT,Clockwise);
-            display_rubiks(rubiks);
+
         }
         face_in_pos = 0;
         for (int i =0; i<3; i++){
