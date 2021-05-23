@@ -308,196 +308,117 @@ void turn_rubiks(struct FACE* rubiks,Type_SIDE face,T_SENSE sense){
 
 void WhiteDaisy(struct FACE* rubiks) {
     int face_in_pos = 0;
-//    // we put all the available off-middle in position 1/0
-//    do {
-//        for (int face = 0; face < 5; face++) {
-//            switch (face) {
-//                case 0:
-//                    if (rubiks[0].BLOCK[0][1] == W) {
-//                        turn_rubiks(rubiks, rubiks[0].SIDE, Anticlockwise);
-//                    }
-//                    if (rubiks[0].BLOCK[1][2] == W) {
-//                        half_turn(rubiks, rubiks[0].SIDE);
-//                    }
-//                    if (rubiks[0].BLOCK[2][1] == W) {
-//                        turn_rubiks(rubiks, rubiks[0].SIDE, Clockwise);
-//                    }
-//                        break;
-//                        case 1:
-//                            while (rubiks[5].BLOCK[1][0] == W) {
-//                                turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
-//                            }
-//                        if (rubiks[1].BLOCK[0][1] == W) {
-//                            turn_rubiks(rubiks, rubiks[1].SIDE, Anticlockwise);
-//                        }
-//                        if (rubiks[face].BLOCK[1][2] == W) {
-//                            half_turn(rubiks, rubiks[1].SIDE);
-//                        }
-//                        if (rubiks[1].BLOCK[2][1] == W) {
-//                            turn_rubiks(rubiks, rubiks[1].SIDE, Clockwise);
-//                        }
-//                        break;
-//                        case 2:
-//                            while (rubiks[5].BLOCK[0][1] == W) {
-//                                turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
-//                            }
-//                        if (rubiks[2].BLOCK[0][1] == W) {
-//                            turn_rubiks(rubiks, rubiks[2].SIDE, Anticlockwise);
-//                        }
-//                        if (rubiks[2].BLOCK[1][2] == W) {
-//                            half_turn(rubiks, rubiks[2].SIDE);
-//                        }
-//                        if (rubiks[2].BLOCK[2][1] == W) {
-//                            turn_rubiks(rubiks, rubiks[2].SIDE, Clockwise);
-//                        }
-//                        break;
-//                        case 3:
-//                            while (rubiks[5].BLOCK[1][2] == W) {
-//                                turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
-//                            }
-//                        if (rubiks[3].BLOCK[0][1] == W) {
-//                            turn_rubiks(rubiks, rubiks[3].SIDE, Anticlockwise);
-//                        }
-//                        if (rubiks[3].BLOCK[1][2] == W) {
-//                            half_turn(rubiks, rubiks[3].SIDE);
-//                        }
-//                        if (rubiks[3].BLOCK[2][1] == W) {
-//                            turn_rubiks(rubiks, rubiks[3].SIDE, Clockwise);
-//                        }
-//                        break;
-//                        case 4:
-//                            while (rubiks[5].BLOCK[2][1] == W) {
-//                                turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
-//                            }
-//                        if (rubiks[4].BLOCK[0][1] == W) {
-//                            turn_rubiks(rubiks, rubiks[4].SIDE, Anticlockwise);
-//                        }
-//                        if (rubiks[4].BLOCK[1][2] == W) {
-//                            half_turn(rubiks, rubiks[4].SIDE);
-//                        }
-//                        if (rubiks[4].BLOCK[2][1] == W) {
-//                            turn_rubiks(rubiks, rubiks[4].SIDE, Clockwise);
-//                        }
-//                        break;
-//                        default:
-//                            break;
-//                    }
-//                    if (face == 0) {
-//                        if (rubiks[face].BLOCK[0][1] == W) {
-//                            turn_rubiks(rubiks, rubiks[face].SIDE, Anticlockwise);
-//                        }
-//                        if (rubiks[face].BLOCK[1][2] == W) {
-//                            half_turn(rubiks, rubiks[face].SIDE);
-//                        }
-//                        if (rubiks[face].BLOCK[2][1] == W) {
-//                            turn_rubiks(rubiks, rubiks[face].SIDE, Clockwise);
-//                        }
-//                    } else if (face == 1) {
-//                        while (rubiks[5].BLOCK[1][0] == W) {
-//                            turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
-//                        }
-//                        if (rubiks[face].BLOCK[0][1] == W) {
-//                            turn_rubiks(rubiks, rubiks[face].SIDE, Anticlockwise);
-//                        }
-//                        if (rubiks[face].BLOCK[1][2] == W) {
-//                            half_turn(rubiks, rubiks[face].SIDE);
-//                        }
-//                        if (rubiks[face].BLOCK[2][1] == W) {
-//                            turn_rubiks(rubiks, rubiks[face].SIDE, Clockwise);
-//                        }
-//                    } else {
-//                        while (rubiks[5].BLOCK[1][0] == W) {
-//                            turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
-//                        }
-//                        if (rubiks[face].BLOCK[0][1] == W) {
-//                            turn_rubiks(rubiks, rubiks[face].SIDE, Anticlockwise);
-//                        }
-//                        if (rubiks[face].BLOCK[1][2] == W) {
-//                            half_turn(rubiks, rubiks[face].SIDE);
-//                        }
-//                        if (rubiks[face].BLOCK[2][1] == W) {
-//                            turn_rubiks(rubiks, rubiks[face].SIDE, Clockwise);
-//                        }
-//                    }
-//            }
-////         Check if the yellow face spot is empty, if not we rotate the face until it is
-//            if (rubiks[0].BLOCK[1][0] == W) {
-//                while (rubiks[5].BLOCK[1][0] == W) {
-//                    turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
-//                }
-//                half_turn(rubiks, rubiks[1].SIDE);
-//            }
-//            if (rubiks[1].BLOCK[1][0] == W) {
-//                while (rubiks[5].BLOCK[2][1] == W) {
-//                    turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
-//                }
-//                turn_rubiks(rubiks, rubiks[4].SIDE, Clockwise);
-//            }
-//            if (rubiks[2].BLOCK[1][0] == W) {
-//                while (rubiks[5].BLOCK[1][0] == W) {
-//                    turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
-//                }
-//                turn_rubiks(rubiks, rubiks[1].SIDE, Clockwise);
-//            }
-//            if (rubiks[3].BLOCK[1][0] == W) {
-//                while (rubiks[5].BLOCK[0][1] == W) {
-//                    turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
-//                }
-//                turn_rubiks(rubiks, rubiks[2].SIDE, Clockwise);
-//            }
-//            if (rubiks[4].BLOCK[1][0] == W) {
-//                while (rubiks[5].BLOCK[1][2] == W) {
-//                    turn_rubiks(rubiks, rubiks[5].SIDE, Clockwise);
-//                }
-//                turn_rubiks(rubiks, rubiks[3].SIDE, Clockwise);
-//            }
-//
-//    }while (rubiks[5].BLOCK[0][1] != W && rubiks[5].BLOCK[1][0] != W && rubiks[5].BLOCK[1][2] != W &&
-//               rubiks[5].BLOCK[2][1] != W);
-Type_SIDE orderedface[5]={LEFT,FRONT,RIGHT,BACK,UP};
+    Type_SIDE orderedface[5]={LEFT,FRONT,RIGHT,BACK,UP};
+    // Until all blocks are positioned in the dow face, forming the daisy, we repeat this algorithm
     do{
+        // We place every white space that is in the middle of a row/col in position [1][0] of the face they're in
+        // We check that by doing so we do not affect any already place in the down face white middle of row/col.
         for(int i = 0; i<5;i++){
             if(rubiks[side_to_index(orderedface[i],rubiks)].BLOCK[0][1]==W){
-                turn_rubiks(rubiks,(Type_SIDE) orderedface[i],Anticlockwise);
+                if (orderedface[i]==LEFT){
+                    while(rubiks[5].BLOCK[1][0]== W){
+                        turn_rubiks(rubiks,DOWN,Clockwise);
+                    }turn_rubiks(rubiks,orderedface[i],Anticlockwise);
+                }else if (orderedface[i]==FRONT){
+                    while(rubiks[5].BLOCK[0][1]== W){
+                        turn_rubiks(rubiks,DOWN,Clockwise);
+                    }turn_rubiks(rubiks,orderedface[i],Anticlockwise);
+                }else if (orderedface[i]==RIGHT){
+                    while(rubiks[5].BLOCK[1][2]== W){
+                        turn_rubiks(rubiks,DOWN,Clockwise);
+                    }turn_rubiks(rubiks,orderedface[i],Anticlockwise);
+                }else if (orderedface[i]==BACK){
+                    while(rubiks[5].BLOCK[2][1]== W){
+                        turn_rubiks(rubiks,DOWN,Clockwise);
+                    }turn_rubiks(rubiks,orderedface[i],Anticlockwise);
+                }else{
+                    turn_rubiks(rubiks,orderedface[i],Anticlockwise);
+
+                }
             }
             if(rubiks[side_to_index(orderedface[i],rubiks)].BLOCK[1][2]==W){
-                half_turn(rubiks,(Type_SIDE) orderedface[i]);
+                if(orderedface[i]==LEFT) {
+                    while (rubiks[5].BLOCK[1][0] == W) {
+                        turn_rubiks(rubiks, DOWN, Clockwise);
+                    }half_turn(rubiks, orderedface[i]);
+                }else if(orderedface[i] == FRONT){
+                    while (rubiks[5].BLOCK[0][1] == W ){
+                        turn_rubiks(rubiks,DOWN,Clockwise);
+                    }half_turn(rubiks, orderedface[i]);
+                }else if(orderedface[i] == RIGHT){
+                    while (rubiks[5].BLOCK[1][2] == W ){
+                        turn_rubiks(rubiks,DOWN,Clockwise);
+                    }half_turn(rubiks, orderedface[i]);
+                }else if(orderedface[i] == BACK){
+                    while (rubiks[5].BLOCK[2][1] == W ){
+                        turn_rubiks(rubiks,DOWN,Clockwise);
+                    }half_turn(rubiks, orderedface[i]);
+                }else{
+                    half_turn(rubiks, orderedface[i]);
+                }
             }
             if(rubiks[side_to_index(orderedface[i],rubiks)].BLOCK[2][1]==W){
-                turn_rubiks(rubiks,(Type_SIDE) orderedface[i],Clockwise);
+                if (orderedface[i] == LEFT){
+                    while (rubiks[5].BLOCK[1][0] == W) {
+                        turn_rubiks(rubiks, DOWN, Clockwise);
+                    }turn_rubiks(rubiks,orderedface[i],Clockwise);
+                }else if (orderedface[i] == FRONT){
+                    while (rubiks[5].BLOCK[0][1] == W ){
+                        turn_rubiks(rubiks,DOWN,Clockwise);
+                    }turn_rubiks(rubiks,orderedface[i],Clockwise);
+                }else if (orderedface[i] == RIGHT){
+                    while (rubiks[5].BLOCK[1][2] == W ){
+                        turn_rubiks(rubiks,DOWN,Clockwise);
+                    }turn_rubiks(rubiks,orderedface[i],Clockwise);
+                }else if (orderedface[i] == BACK){
+                    while (rubiks[5].BLOCK[2][1] == W ){
+                        turn_rubiks(rubiks,DOWN,Clockwise);
+                    }turn_rubiks(rubiks,orderedface[i],Clockwise);
+                }else{
+                    turn_rubiks(rubiks,orderedface[i],Clockwise);
+                }
             }
         }
-
+        // Now we can just rotate the face to the left of the placed white middle row/col clockwise to place them in
+        // the down face. If the position they are going to take is already taken, we rotate the down face until there
+        // is a free space for them.
         if (rubiks[0].BLOCK[1][0] == W){
-            while (rubiks[5].BLOCK[1][0] == W){
+            while (rubiks[5].BLOCK[1][0] == W ){
                 turn_rubiks(rubiks,DOWN,Clockwise);
             }
-            turn_rubiks(rubiks,LEFT,Clockwise);
+            half_turn(rubiks,LEFT);
+            display_rubiks(rubiks);
         }
 
         if (rubiks[1].BLOCK[1][0] == W){
-            while (rubiks[5].BLOCK[2][1] == W){
+            while (rubiks[5].BLOCK[2][1] == W ){
                 turn_rubiks(rubiks,DOWN,Clockwise);
             }
             turn_rubiks(rubiks,BACK,Clockwise);
+            display_rubiks(rubiks);
         }
         if (rubiks[2].BLOCK[1][0] == W){
-            while (rubiks[5].BLOCK[1][0] == W){
+            while (rubiks[5].BLOCK[1][0] == W ){
                 turn_rubiks(rubiks,DOWN,Clockwise);
             }
             turn_rubiks(rubiks,LEFT,Clockwise);
+            display_rubiks(rubiks);
         }
+
         if (rubiks[3].BLOCK[1][0] == W){
             while (rubiks[5].BLOCK[0][1] == W){
                 turn_rubiks(rubiks,DOWN,Clockwise);
             }
             turn_rubiks(rubiks,FRONT,Clockwise);
+            display_rubiks(rubiks);
         }
+
         if (rubiks[4].BLOCK[1][0] == W){
-            while (rubiks[5].BLOCK[1][2] == W){
+            while (rubiks[5].BLOCK[1][2] == W ){
                 turn_rubiks(rubiks,DOWN,Clockwise);
             }
             turn_rubiks(rubiks,RIGHT,Clockwise);
+            display_rubiks(rubiks);
         }
         face_in_pos = 0;
         for (int i =0; i<3; i++){
@@ -512,7 +433,32 @@ Type_SIDE orderedface[5]={LEFT,FRONT,RIGHT,BACK,UP};
 
 // 2. White Cross
 
+void WhiteCross(struct FACE* rubiks){
+    int face_in_pos = 0;
+    do{
+        for (int face=1; face <5; face++){
+            if (rubiks[face].BLOCK[2][1]==rubiks[face].BLOCK[1][1]){
+                half_turn(rubiks, rubiks[face].SIDE);
+            }
+        }
+        turn_rubiks(rubiks, DOWN, Clockwise);
+        face_in_pos = 0;
+        for (int i =0; i<3; i++){
+            for (int j = 0; j<3; j++){
+                if ((rubiks[0].BLOCK[i][j] == W) && ((i == 1)||(j==1))){
+                    face_in_pos++;
+                }
+            }
+        }
+    }while(face_in_pos != 5);
+}
+
 // 3. First Crown
+
+void FirstCrown(struct FACE* rubiks){
+
+
+}
 
 // 4. Second Crown
 

@@ -126,7 +126,8 @@ int main (){
     display_rubiks(Rubiks);
     WhiteDaisy(Rubiks);
     display_rubiks(Rubiks);
-
+    WhiteCross(Rubiks);
+    display_rubiks(Rubiks);
     free_rubiks(Rubiks);
     return 0;
 }

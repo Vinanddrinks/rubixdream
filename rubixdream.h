@@ -54,6 +54,8 @@ void crown_namegiver(Type_SIDE* CRlist,Type_SIDE center_face);
 // Solving Algorithms
 
 void WhiteDaisy(struct FACE* rubiks);
+void WhiteCross(struct FACE* rubiks);
+void FirstCrown(struct FACE* rubiks);
 
 // Free
 void free_rubiks(struct FACE* rubiks);
