@@ -891,7 +891,6 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, left[1],Clockwise);
                     turn_rubiks(rubiks, DOWN,Anticlockwise);
                     turn_rubiks(rubiks, left[1],Anticlockwise);
-                    printf("Mal Placé 1\n");
                     unstuck1_2p = 1;
                 }
                 if (face == 2){
@@ -903,7 +902,6 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, front[1],Clockwise);
                     turn_rubiks(rubiks, DOWN,Anticlockwise);
                     turn_rubiks(rubiks, front[1],Anticlockwise);
-                    printf("Mal Placé 2\n");
 
                 }
                 if (face == 3 && unstuck1_2p == 0){
@@ -915,7 +913,6 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, right[1],Clockwise);
                     turn_rubiks(rubiks, DOWN,Anticlockwise);
                     turn_rubiks(rubiks, right[1],Anticlockwise);
-                    printf("Mal Placé 3\n");
                     unstuck3_4p = 1;
 
                 }
@@ -928,7 +925,6 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, back[1],Clockwise);
                     turn_rubiks(rubiks, DOWN,Anticlockwise);
                     turn_rubiks(rubiks, back[1],Anticlockwise);
-                    printf("Mal Placé 4\n");
 
                 }
             }
@@ -1053,7 +1049,6 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, left[1],Anticlockwise);
                     turn_rubiks(rubiks, DOWN,Clockwise);
                     turn_rubiks(rubiks, left[1],Clockwise);
-                    printf("Mal Placé 1'\n");
                     unstuck1_2p = 1;
                 }
                 if (face == 2 && unstuck1_2p == 0){
@@ -1065,7 +1060,6 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, front[1],Anticlockwise);
                     turn_rubiks(rubiks, DOWN,Clockwise);
                     turn_rubiks(rubiks, front[1],Clockwise);
-                    printf("Mal Placé 2'\n");
 
                 }
                 if (face == 3){
@@ -1077,7 +1071,6 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, right[1],Anticlockwise);
                     turn_rubiks(rubiks, DOWN,Clockwise);
                     turn_rubiks(rubiks, right[1],Clockwise);
-                    printf("Mal Placé 3'\n");
                     unstuck3_4p = 1;
 
                 }
@@ -1090,7 +1083,6 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, back[1],Anticlockwise);
                     turn_rubiks(rubiks, DOWN,Clockwise);
                     turn_rubiks(rubiks, back[1],Clockwise);
-                    printf("Mal Placé 4'\n");
 
                 }
             }
