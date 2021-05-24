@@ -484,25 +484,7 @@ Boolean FaceDone(struct FACE* rubiks,Type_SIDE face) {
 }
 
 
-void MiddleBotRightToUp(struct FACE* rubiks, Type_SIDE face){
-    turn_rubiks(rubiks, face, Clockwise);
-    turn_rubiks(rubiks, DOWN, Clockwise);
-    turn_rubiks(rubiks, face, Anticlockwise);
-}
-
-
-void MiddleBotLeftToUp(struct FACE* rubiks, Type_SIDE face){
-    turn_rubiks(rubiks, face, Anticlockwise);
-    turn_rubiks(rubiks, DOWN, Anticlockwise);
-    turn_rubiks(rubiks, face, Clockwise);
-}
-
-void BringWhiteDown(struct FACE* rubiks, Type_SIDE face){
-    turn_rubiks(rubiks,face,Clockwise);
-    turn_rubiks(rubiks,DOWN,Clockwise);
-    turn_rubiks(rubiks,face,Anticlockwise);
-    // where face = left face from the corner when looking at the UP face
-}
+// 3. First Crown
 
 void FirstCrown(struct FACE* rubiks) {
     Type_SIDE left[4] = {BACK,LEFT,FRONT,RIGHT};
@@ -702,9 +684,6 @@ void FirstCrown(struct FACE* rubiks) {
         }
     }while ((FaceDone(rubiks, UP) == False) || (WhiteCrownDone(rubiks) == False));
 }
-
-// 3. First Crown
-
 
 // 4. Second Crown
 
