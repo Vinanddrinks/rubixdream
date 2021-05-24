@@ -509,6 +509,8 @@ void FirstCrown(struct FACE* rubiks) {
     Type_SIDE left[4] = {BACK,LEFT,FRONT,RIGHT};
     Type_SIDE right[4] = {FRONT,RIGHT,BACK,LEFT};
     Type_SIDE front[4] = {LEFT,FRONT,RIGHT,BACK};
+    Type_SIDE adj_face[4] = {LEFT, BACK, RIGHT, FRONT};
+
     int cnst;
     //check for all corner where white stickers are on the white edge
     do {
@@ -682,6 +684,22 @@ void FirstCrown(struct FACE* rubiks) {
                 turn_rubiks(rubiks, rubiks[i].SIDE,Clockwise);
                 turn_rubiks(rubiks,DOWN,Clockwise);
                 turn_rubiks(rubiks,rubiks[i].SIDE,Anticlockwise);
+            }
+        }
+        if((FaceDone(rubiks, UP) == True) && (WhiteCrownDone(rubiks) == False)){
+            for (int i=0; i<4; i++){
+                if (rubiks[side_to_index( adj_face[i],rubiks)].BLOCK[0][0] != rubiks[side_to_index( adj_face[i],rubiks)].BLOCK[1][1]){
+                    if ( (i==0)  || (i==3)){
+                        turn_rubiks(rubiks, adj_face[i], Anticlockwise);
+                        turn_rubiks(rubiks,DOWN,Clockwise);
+                        turn_rubiks(rubiks, adj_face[i], Clockwise);
+                    }
+                    if ((i==1)|| (i==2)) {
+                        turn_rubiks(rubiks, adj_face[i], Clockwise);
+                        turn_rubiks(rubiks,DOWN,Clockwise);
+                        turn_rubiks(rubiks, adj_face[i], Anticlockwise);
+                    }
+                }
             }
         }
         display_rubiks(rubiks);
