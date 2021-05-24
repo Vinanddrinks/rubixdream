@@ -666,7 +666,7 @@ void FirstCrown(struct FACE* rubiks) {
                     turn_rubiks(rubiks, DOWN, Anticlockwise);
                     turn_rubiks(rubiks, front[facer - 1], Clockwise);
                     printf("Ok1\n");
-                } else if (cnst = 1) {
+                } else if (cnst == 1) {
                     turn_rubiks(rubiks, DOWN, Clockwise), printf("hello1\n");
                 }
             }
