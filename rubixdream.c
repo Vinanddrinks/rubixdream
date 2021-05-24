@@ -1369,12 +1369,12 @@ Boolean corner_in_place(struct FACE* rubiks, int face){
         }
     }
     if (face == 3){
-        if (((rubiks[face].BLOCK[2][0] == rubiks[left_index(face)].BLOCK[1][1]) || (rubiks[face].BLOCK[2][0] == rubiks[face].BLOCK[1][1])) && ((rubiks[left_index(face)].BLOCK[2][2] == rubiks[face].BLOCK[1][1]) || (rubiks[left_index(face)].BLOCK[2][2] == rubiks[left_index(face)].BLOCK[1][1])) && ((rubiks[5].BLOCK[0][2] == rubiks[face].BLOCK[1][1]) || (rubiks[5].BLOCK[0][2] == rubiks[left_index(face)].BLOCK[1][1]))){
+        if (((rubiks[face].BLOCK[2][0] == rubiks[left_index(face)].BLOCK[1][1]) || (rubiks[face].BLOCK[2][0] == rubiks[face].BLOCK[1][1])) && ((rubiks[left_index(face)].BLOCK[2][2] == rubiks[face].BLOCK[1][1]) || (rubiks[left_index(face)].BLOCK[2][2] == rubiks[left_index(face)].BLOCK[1][1])) && ((rubiks[5].BLOCK[2][2] == rubiks[face].BLOCK[1][1]) || (rubiks[5].BLOCK[2][2] == rubiks[left_index(face)].BLOCK[1][1]))){
             return True;
         }
     }
     if (face == 4){
-        if (((rubiks[face].BLOCK[2][0] == rubiks[left_index(face)].BLOCK[1][1]) || (rubiks[face].BLOCK[2][0] == rubiks[face].BLOCK[1][1])) && ((rubiks[left_index(face)].BLOCK[2][2] == rubiks[face].BLOCK[1][1]) || (rubiks[left_index(face)].BLOCK[2][2] == rubiks[left_index(face)].BLOCK[1][1])) && ((rubiks[5].BLOCK[2][2] == rubiks[face].BLOCK[1][1]) || (rubiks[5].BLOCK[2][2] == rubiks[left_index(face)].BLOCK[1][1]))){
+        if (((rubiks[face].BLOCK[2][0] == rubiks[left_index(face)].BLOCK[1][1]) || (rubiks[face].BLOCK[2][0] == rubiks[face].BLOCK[1][1])) && ((rubiks[left_index(face)].BLOCK[2][2] == rubiks[face].BLOCK[1][1]) || (rubiks[left_index(face)].BLOCK[2][2] == rubiks[left_index(face)].BLOCK[1][1])) && ((rubiks[5].BLOCK[0][2] == rubiks[face].BLOCK[1][1]) || (rubiks[5].BLOCK[0][2] == rubiks[left_index(face)].BLOCK[1][1]))){
             return True;
         }
     }
@@ -1382,11 +1382,13 @@ Boolean corner_in_place(struct FACE* rubiks, int face){
 }
 
 void place_yellow_corners(struct FACE* rubiks){
+    int placed_faces = 0;
     for (int face = 1; face <5; face ++){
         if (corner_in_place(rubiks, face) == True){
-
+            placed_faces ++;
         }
     }
+    printf("placed faces: %d\n", placed_faces);
 }
 
 

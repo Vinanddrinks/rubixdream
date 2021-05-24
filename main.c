@@ -136,6 +136,8 @@ int main (){
     display_rubiks(Rubiks);
     YellowEdges(Rubiks);
     display_rubiks(Rubiks);
+    place_yellow_corners(Rubiks);
+    display_rubiks(Rubiks);
 //    half_turn(Rubiks,LEFT);
 //    half_turn(Rubiks,RIGHT);
 //    FirstCrown(Rubiks);

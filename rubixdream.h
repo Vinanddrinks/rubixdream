@@ -69,6 +69,7 @@ int howManyEdgesInPos(struct FACE* rubiks);
 void YellowCross(struct FACE* rubiks);
 void YellowEdges(struct FACE* rubiks);
 Boolean corner_in_place(struct FACE* rubiks, int face);
+void place_yellow_corners(struct FACE* rubiks);
 
 // Free
 void free_rubiks(struct FACE* rubiks);
