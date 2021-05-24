@@ -664,8 +664,6 @@ void FirstCrown(struct FACE* rubiks) {
                 }else turn_rubiks(rubiks,DOWN,Clockwise),printf("hello1\n");
             }
         }
-        //descend case (incorrectly placed white corner)
-        for(int i =0; i<4;i++);
         display_rubiks(rubiks);
     }while ((FaceDone(rubiks, UP) == False) || (WhiteCrownDone(rubiks) == False));
 }
