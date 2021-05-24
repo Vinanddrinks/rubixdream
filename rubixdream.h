@@ -63,6 +63,7 @@ void SecondCrown(struct FACE* rubiks);
 Boolean YellowCrossDone(struct FACE* rubiks);
 Boolean YellowL(struct FACE* rubiks);
 Boolean YellowLine(struct FACE* rubiks);
+int howManyEdgesInPos(struct FACE* rubiks);
 void YellowCross(struct FACE* rubiks);
 
 // Free

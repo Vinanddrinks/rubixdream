@@ -1103,10 +1103,50 @@ void YellowCross(struct FACE* rubiks) {
     }while(YellowCrossDone(rubiks) == False);
 }
 
-
-
-
 // 6. Yellow Edges
+
+Boolean YellowEdgesDone(struct FACE* rubiks){
+    if ( (rubiks[1].BLOCK[2][1] == O) && (rubiks[2].BLOCK[2][1] == G) && (rubiks[3].BLOCK[2][1] == R) && (rubiks[4].BLOCK[2][1] == B)){
+        return True;
+    }
+    return False;
+}
+
+int howManyEdgesInPos(struct FACE* rubiks){
+    int edge_in_pos = 0, max;
+    max = edge_in_pos;
+    for (int test = 0; test <4; test++){
+        if (rubiks[1].[2])
+    }
+    return max;
+}
+
+void YellowEdges(struct FACE* rubiks) {
+    do{
+        while(rubiks[1].BLOCK[2][1] != O){
+            turn_rubiks(rubiks, BACK, Clockwise);
+            turn_rubiks(rubiks, DOWN, Clockwise);
+            turn_rubiks(rubiks, BACK, Anticlockwise);
+            turn_rubiks(rubiks, DOWN, Clockwise);
+            turn_rubiks(rubiks, BACK, Clockwise);
+            turn_rubiks(rubiks, DOWN, Clockwise);
+            turn_rubiks(rubiks, DOWN, Clockwise);
+            turn_rubiks(rubiks, BACK, Anticlockwise);
+            turn_rubiks(rubiks, DOWN, Clockwise);
+
+            for (int test =0; test <4; test++){
+                if(rubiks[1].BLOCK[2][1] != O){
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                }
+            }
+
+
+        }
+
+
+
+    }while(YellowEdgesDone(rubiks)==False);
+}
 
 // Free rubiks
 

@@ -134,7 +134,7 @@ int main (){
     display_rubiks(Rubiks);
     YellowCross(Rubiks);
     display_rubiks(Rubiks);
-
+    printf("%d\n", howManyEdgesInPos(Rubiks));
 //    half_turn(Rubiks,LEFT);
 //    half_turn(Rubiks,RIGHT);
 //    FirstCrown(Rubiks);
