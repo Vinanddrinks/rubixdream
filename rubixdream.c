@@ -80,6 +80,65 @@ void crown_namegiver(Type_SIDE* CRlist,Type_SIDE center_face) {
             break;
     }
 }
+int opposite_index(int Face){
+    switch (Face) {
+        case 0:
+            return 5;
+        case 5:
+            return 0;
+        case 1:
+            return 3;
+        case 3:
+            return 1;
+        case 2:
+            return 4;
+        case 4:
+            return 2;
+        default:
+            break;
+    }
+}
+
+int left_index(int Face){
+        switch (Face) {
+            case 0:
+                return 1;
+            case 5:
+                return 1;
+            case 1:
+                return 4;
+            case 3:
+                return 2;
+            case 2:
+                return 1;
+            case 4:
+                return 3;
+            default:
+                break;
+
+
+        }
+}
+int right_index(int Face){
+    switch (Face) {
+        case 0:
+            return 3;
+        case 5:
+            return 3;
+        case 1:
+            return 2;
+        case 3:
+            return 4;
+        case 2:
+            return 3;
+        case 4:
+            return 1;
+        default:
+            break;
+
+
+    }
+}
 char* select_caption(T_COLOR block_color){
     switch(block_color){
         case R:

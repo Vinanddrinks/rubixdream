@@ -50,7 +50,9 @@ int select_color(T_COLOR color);
 char* select_caption(T_COLOR block_color);
 int side_to_index(Type_SIDE face, struct FACE* rubiks);
 void crown_namegiver(Type_SIDE* CRlist,Type_SIDE center_face);
-
+int opposite_index(int Face);
+int left_index(int Face);
+int right_index(int Face);
 // Solving Algorithms
 
 void WhiteDaisy(struct FACE* rubiks);
