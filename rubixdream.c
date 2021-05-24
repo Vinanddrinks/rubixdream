@@ -712,6 +712,7 @@ void SecondCrown(struct FACE* rubiks){
     Type_SIDE front[4] = {LEFT,FRONT,RIGHT,BACK};
     Type_SIDE back[4] = {RIGHT, BACK, LEFT, FRONT};
     do{
+        // We place the blocks we can on the crown
         for (int face = 1 ; face <5; face ++){
            for(int i=0; i<4; i++){
                if (rubiks[face].BLOCK[2][1] == rubiks[face].BLOCK[1][1]){
@@ -817,7 +818,7 @@ void SecondCrown(struct FACE* rubiks){
                turn_rubiks(rubiks, DOWN, Clockwise);
            }
         }
-        // Case it is badly placed
+        // Case it is badly placed and place them in the pos (2,1) to place it using the next algorithm
         for (int face = 1; face<5; face++){
             if (rubiks[face].BLOCK[1][2] != rubiks[face].BLOCK[1][1]){
                 if (face == 1){
@@ -829,7 +830,6 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, left[1],Clockwise);
                     turn_rubiks(rubiks, DOWN,Anticlockwise);
                     turn_rubiks(rubiks, left[1],Anticlockwise);
-                    printf("Mal Placé 1\n");
                 }
                 if (face == 2){
                     turn_rubiks(rubiks, DOWN,Anticlockwise);
@@ -840,7 +840,6 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, front[1],Clockwise);
                     turn_rubiks(rubiks, DOWN,Anticlockwise);
                     turn_rubiks(rubiks, front[1],Anticlockwise);
-                    printf("Mal Placé 2\n");
 
                 }
                 if (face == 3){
@@ -852,7 +851,6 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, right[1],Clockwise);
                     turn_rubiks(rubiks, DOWN,Anticlockwise);
                     turn_rubiks(rubiks, right[1],Anticlockwise);
-                    printf("Mal Placé 3\n");
 
                 }
                 if (face == 4){
@@ -864,11 +862,120 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, back[1],Clockwise);
                     turn_rubiks(rubiks, DOWN,Anticlockwise);
                     turn_rubiks(rubiks, back[1],Anticlockwise);
-                    printf("Mal Placé 4\n");
 
                 }
             }
         }
+
+        // We placed the blocks we moved above
+
+        for (int face = 1 ; face <5; face ++){
+            for(int i=0; i<4; i++){
+                if (rubiks[face].BLOCK[2][1] == rubiks[face].BLOCK[1][1]){
+                    if (rubiks[5].BLOCK[coord_down[0][0]][coord_down[0][1]] != Y){
+                        if(face == 1){
+                            //bring it to right
+                            if (rubiks[5].BLOCK[coord_down[0][0]][coord_down[0][1]] == G){
+                                turn_rubiks(rubiks, DOWN, Anticlockwise);
+                                turn_rubiks(rubiks, left[2], Anticlockwise);
+                                turn_rubiks(rubiks, DOWN, Clockwise);
+                                turn_rubiks(rubiks, left[2], Clockwise);
+                                turn_rubiks(rubiks, DOWN, Clockwise);
+                                turn_rubiks(rubiks, left[1], Clockwise);
+                                turn_rubiks(rubiks, DOWN, Anticlockwise);
+                                turn_rubiks(rubiks, left[1], Anticlockwise);
+                            }
+                            //bring it to left
+                            if (rubiks[5].BLOCK[coord_down[0][0]][coord_down[0][1]] == B){
+                                turn_rubiks(rubiks, DOWN, Clockwise);
+                                turn_rubiks(rubiks, left[0], Clockwise);
+                                turn_rubiks(rubiks, DOWN, Anticlockwise);
+                                turn_rubiks(rubiks, left[0], Anticlockwise);
+                                turn_rubiks(rubiks, DOWN, Anticlockwise);
+                                turn_rubiks(rubiks, left[1], Anticlockwise);
+                                turn_rubiks(rubiks, DOWN, Clockwise);
+                                turn_rubiks(rubiks, left[1], Clockwise);
+                            }
+                        }
+                        if (face == 2){
+                            // Bring it to right
+                            if (rubiks[5].BLOCK[coord_down[1][0]][coord_down[1][1]] == R){
+                                turn_rubiks(rubiks, DOWN, Anticlockwise);
+                                turn_rubiks(rubiks, front[2], Anticlockwise);
+                                turn_rubiks(rubiks, DOWN, Clockwise);
+                                turn_rubiks(rubiks, front[2], Clockwise);
+                                turn_rubiks(rubiks, DOWN, Clockwise);
+                                turn_rubiks(rubiks, front[1], Clockwise);
+                                turn_rubiks(rubiks, DOWN, Anticlockwise);
+                                turn_rubiks(rubiks, front[1], Anticlockwise);
+                            }
+                            // Bring it to left
+                            if (rubiks[5].BLOCK[coord_down[1][0]][coord_down[1][1]] == O){
+                                turn_rubiks(rubiks, DOWN, Clockwise);
+                                turn_rubiks(rubiks, front[0], Clockwise);
+                                turn_rubiks(rubiks, DOWN, Anticlockwise);
+                                turn_rubiks(rubiks, front[0], Anticlockwise);
+                                turn_rubiks(rubiks, DOWN, Anticlockwise);
+                                turn_rubiks(rubiks, front[1], Anticlockwise);
+                                turn_rubiks(rubiks, DOWN, Clockwise);
+                                turn_rubiks(rubiks, front[1], Clockwise);
+                            }
+                        }
+                        if (face == 3){
+                            // Bring it to right
+                            if (rubiks[5].BLOCK[coord_down[2][0]][coord_down[2][1]] == B){
+                                turn_rubiks(rubiks, DOWN, Anticlockwise);
+                                turn_rubiks(rubiks, right[2], Anticlockwise);
+                                turn_rubiks(rubiks, DOWN, Clockwise);
+                                turn_rubiks(rubiks, right[2], Clockwise);
+                                turn_rubiks(rubiks, DOWN, Clockwise);
+                                turn_rubiks(rubiks, right[1], Clockwise);
+                                turn_rubiks(rubiks, DOWN, Anticlockwise);
+                                turn_rubiks(rubiks, right[1], Anticlockwise);
+                            }
+                            // Bring it to left
+                            if (rubiks[5].BLOCK[coord_down[2][0]][coord_down[2][1]] == G){
+                                turn_rubiks(rubiks, DOWN, Clockwise);
+                                turn_rubiks(rubiks, right[0], Clockwise);
+                                turn_rubiks(rubiks, DOWN, Anticlockwise);
+                                turn_rubiks(rubiks, right[0], Anticlockwise);
+                                turn_rubiks(rubiks, DOWN, Anticlockwise);
+                                turn_rubiks(rubiks, right[1], Anticlockwise);
+                                turn_rubiks(rubiks, DOWN, Clockwise);
+                                turn_rubiks(rubiks, right[1], Clockwise);
+                            }
+                        }
+                        if (face == 4){
+                            // Bring it to right
+                            if (rubiks[5].BLOCK[coord_down[3][0]][coord_down[3][1]] == O){
+                                turn_rubiks(rubiks, DOWN, Anticlockwise);
+                                turn_rubiks(rubiks, back[2], Anticlockwise);
+                                turn_rubiks(rubiks, DOWN, Clockwise);
+                                turn_rubiks(rubiks, back[2], Clockwise);
+                                turn_rubiks(rubiks, DOWN, Clockwise);
+                                turn_rubiks(rubiks, back[1], Clockwise);
+                                turn_rubiks(rubiks, DOWN, Anticlockwise);
+                                turn_rubiks(rubiks, back[1], Anticlockwise);
+                            }
+                            // Bring it to left
+                            if (rubiks[5].BLOCK[coord_down[3][0]][coord_down[3][1]] == R){
+                                turn_rubiks(rubiks, DOWN, Clockwise);
+                                turn_rubiks(rubiks, back[0], Clockwise);
+                                turn_rubiks(rubiks, DOWN, Anticlockwise);
+                                turn_rubiks(rubiks, back[0], Anticlockwise);
+                                turn_rubiks(rubiks, DOWN, Anticlockwise);
+                                turn_rubiks(rubiks, back[1], Anticlockwise);
+                                turn_rubiks(rubiks, DOWN, Clockwise);
+                                turn_rubiks(rubiks, back[1], Clockwise);
+                            }
+                        }
+                    }
+                }
+                turn_rubiks(rubiks, DOWN, Clockwise);
+            }
+        }
+
+        // We replace the blocks that are not placed correctly
         for (int face = 1; face <5 ; face ++){
             if (rubiks[face].BLOCK[1][0] == Y){
                 if (face == 1){
@@ -880,7 +987,6 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, left[1],Anticlockwise);
                     turn_rubiks(rubiks, DOWN,Clockwise);
                     turn_rubiks(rubiks, left[1],Clockwise);
-                    printf("Mal Placé 1'\n");
                 }
                 if (face == 2){
                     turn_rubiks(rubiks, DOWN,Clockwise);
@@ -891,7 +997,6 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, front[1],Anticlockwise);
                     turn_rubiks(rubiks, DOWN,Clockwise);
                     turn_rubiks(rubiks, front[1],Clockwise);
-                    printf("Mal Placé 2'\n");
 
                 }
                 if (face == 3){
@@ -903,7 +1008,6 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, right[1],Anticlockwise);
                     turn_rubiks(rubiks, DOWN,Clockwise);
                     turn_rubiks(rubiks, right[1],Clockwise);
-                    printf("Mal Placé 3'\n");
 
                 }
                 if (face == 4){
@@ -915,8 +1019,6 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, back[1],Anticlockwise);
                     turn_rubiks(rubiks, DOWN,Clockwise);
                     turn_rubiks(rubiks, back[1],Clockwise);
-                    printf("Mal Placé 4'\n");
-
                 }
             }
         }
