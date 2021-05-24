@@ -60,6 +60,10 @@ Boolean WhiteCrownDone (struct FACE* rubiks);
 Boolean FaceDone(struct FACE* rubiks,Type_SIDE face);
 Boolean SecondCrownDone(struct FACE* rubiks);
 void SecondCrown(struct FACE* rubiks);
+Boolean YellowCrossDone(struct FACE* rubiks);
+Boolean YellowL(struct FACE* rubiks);
+Boolean YellowLine(struct FACE* rubiks);
+void YellowCross(struct FACE* rubiks);
 
 // Free
 void free_rubiks(struct FACE* rubiks);

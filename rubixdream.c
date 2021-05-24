@@ -830,6 +830,7 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, left[1],Clockwise);
                     turn_rubiks(rubiks, DOWN,Anticlockwise);
                     turn_rubiks(rubiks, left[1],Anticlockwise);
+                    printf("Mal Placé 1\n");
                 }
                 if (face == 2){
                     turn_rubiks(rubiks, DOWN,Anticlockwise);
@@ -840,6 +841,7 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, front[1],Clockwise);
                     turn_rubiks(rubiks, DOWN,Anticlockwise);
                     turn_rubiks(rubiks, front[1],Anticlockwise);
+                    printf("Mal Placé 2\n");
 
                 }
                 if (face == 3){
@@ -851,6 +853,7 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, right[1],Clockwise);
                     turn_rubiks(rubiks, DOWN,Anticlockwise);
                     turn_rubiks(rubiks, right[1],Anticlockwise);
+                    printf("Mal Placé 3\n");
 
                 }
                 if (face == 4){
@@ -862,6 +865,7 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, back[1],Clockwise);
                     turn_rubiks(rubiks, DOWN,Anticlockwise);
                     turn_rubiks(rubiks, back[1],Anticlockwise);
+                    printf("Mal Placé 4\n");
 
                 }
             }
@@ -974,7 +978,6 @@ void SecondCrown(struct FACE* rubiks){
                 turn_rubiks(rubiks, DOWN, Clockwise);
             }
         }
-
         // We replace the blocks that are not placed correctly
         for (int face = 1; face <5 ; face ++){
             if (rubiks[face].BLOCK[1][0] == Y){
@@ -987,6 +990,7 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, left[1],Anticlockwise);
                     turn_rubiks(rubiks, DOWN,Clockwise);
                     turn_rubiks(rubiks, left[1],Clockwise);
+                    printf("Mal Placé 1'\n");
                 }
                 if (face == 2){
                     turn_rubiks(rubiks, DOWN,Clockwise);
@@ -997,6 +1001,7 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, front[1],Anticlockwise);
                     turn_rubiks(rubiks, DOWN,Clockwise);
                     turn_rubiks(rubiks, front[1],Clockwise);
+                    printf("Mal Placé 2'\n");
 
                 }
                 if (face == 3){
@@ -1008,6 +1013,7 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, right[1],Anticlockwise);
                     turn_rubiks(rubiks, DOWN,Clockwise);
                     turn_rubiks(rubiks, right[1],Clockwise);
+                    printf("Mal Placé 3'\n");
 
                 }
                 if (face == 4){
@@ -1019,6 +1025,8 @@ void SecondCrown(struct FACE* rubiks){
                     turn_rubiks(rubiks, back[1],Anticlockwise);
                     turn_rubiks(rubiks, DOWN,Clockwise);
                     turn_rubiks(rubiks, back[1],Clockwise);
+                    printf("Mal Placé 4'\n");
+
                 }
             }
         }
@@ -1028,6 +1036,75 @@ void SecondCrown(struct FACE* rubiks){
 
 
 // 5. Yellow Cross
+
+Boolean YellowCrossDone(struct FACE* rubiks) {
+    if ((rubiks[5].BLOCK[0][1] == Y) && (rubiks[5].BLOCK[1][0]==Y) && (rubiks[5].BLOCK[1][2]==Y) && (rubiks[5].BLOCK[2][1] == Y)){
+        return True;
+    }
+    return False;
+}
+Boolean YellowL(struct FACE* rubiks){
+
+    if ((rubiks[5].BLOCK[0][1] == Y && rubiks[5].BLOCK[1][0] == Y)){
+            return True;
+    }
+    return False;
+}
+
+Boolean YellowLine(struct FACE* rubiks){
+    if ((rubiks[5].BLOCK[0][1] == Y && rubiks[5].BLOCK[2][1] == Y) ||(rubiks[5].BLOCK[1][0] == Y && rubiks[5].BLOCK[1][2] == Y)  ){
+        return True;
+    }
+    return False;
+}
+
+void YellowCross(struct FACE* rubiks) {
+    do{
+        // Case we only have a dot
+        if (YellowL(rubiks)==False && YellowLine(rubiks) == False) {
+            do {
+                turn_rubiks(rubiks, FRONT, Clockwise);
+                turn_rubiks(rubiks, LEFT, Clockwise);
+                turn_rubiks(rubiks, DOWN, Clockwise);
+                turn_rubiks(rubiks, LEFT, Anticlockwise);
+                turn_rubiks(rubiks, DOWN, Anticlockwise);
+                turn_rubiks(rubiks, FRONT, Anticlockwise);
+
+                for (int test = 0; test < 4; test++) {
+                    if (YellowL(rubiks) == False && YellowLine(rubiks) == False) {
+                        turn_rubiks(rubiks, DOWN, Clockwise);
+                    }
+                }
+
+            } while (YellowL(rubiks) == False && YellowLine(rubiks) == False);
+        }
+        // Case we have a yellow L
+        if (YellowLine(rubiks) == False){
+            turn_rubiks(rubiks, FRONT, Clockwise);
+            turn_rubiks(rubiks, LEFT, Clockwise);
+            turn_rubiks(rubiks, DOWN, Clockwise);
+            turn_rubiks(rubiks, LEFT, Anticlockwise);
+            turn_rubiks(rubiks, DOWN, Anticlockwise);
+            turn_rubiks(rubiks, FRONT, Anticlockwise);
+        }
+        // Case we have a line
+        if (YellowCrossDone(rubiks) == False){
+            if ((rubiks[5].BLOCK[0][1] == Y)  && (rubiks[5].BLOCK[2][1] == Y)){
+                turn_rubiks(rubiks, DOWN, Clockwise);
+            }
+            turn_rubiks(rubiks, FRONT, Clockwise);
+            turn_rubiks(rubiks, LEFT, Clockwise);
+            turn_rubiks(rubiks, DOWN, Clockwise);
+            turn_rubiks(rubiks, LEFT, Anticlockwise);
+            turn_rubiks(rubiks, DOWN, Anticlockwise);
+            turn_rubiks(rubiks, FRONT, Anticlockwise);
+        }
+
+    }while(YellowCrossDone(rubiks) == False);
+}
+
+
+
 
 // 6. Yellow Edges
 
@@ -1048,3 +1125,4 @@ void random_rubiks(struct FACE* rubik,int nbrmove){
         turn_rubiks(rubik,side,sense);
     }
 }
+
