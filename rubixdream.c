@@ -666,6 +666,7 @@ void FirstCrown(struct FACE* rubiks) {
                 turn_rubiks(rubiks,rubiks[i].SIDE,Anticlockwise);
             }
         }
+        // If the face is done but the crown is wrong (misplaced white corners)
         if((FaceDone(rubiks, UP) == True) && (WhiteCrownDone(rubiks) == False)){
             for (int i=0; i<4; i++){
                 if (rubiks[side_to_index( adj_face[i],rubiks)].BLOCK[0][0] != rubiks[side_to_index( adj_face[i],rubiks)].BLOCK[1][1]){
@@ -686,6 +687,243 @@ void FirstCrown(struct FACE* rubiks) {
 }
 
 // 4. Second Crown
+
+Boolean SecondCrownDone(struct FACE* rubiks){
+    int count=0;
+    for (int i = 1; i<5; i++){
+        if (rubiks[i].BLOCK[1][0] == rubiks[i].BLOCK[1][1]){
+            count ++;
+        }
+        if (rubiks[i].BLOCK[1][2] == rubiks[i].BLOCK[1][1]){
+            count ++;
+        }
+    }
+    if (count==8){
+        return True;
+    }else{
+        return False;
+    }
+}
+
+void SecondCrown(struct FACE* rubiks){
+    int coord_down[4][2] = {{1,0},{0,1},{1,2},{2,1}}; // Coordinates of the blocks in the yellow face from left to back
+    Type_SIDE left[4] = {BACK,LEFT,FRONT,RIGHT};
+    Type_SIDE right[4] = {FRONT,RIGHT,BACK,LEFT};
+    Type_SIDE front[4] = {LEFT,FRONT,RIGHT,BACK};
+    Type_SIDE back[4] = {RIGHT, BACK, LEFT, FRONT};
+    do{
+        for (int face = 1 ; face <5; face ++){
+           for(int i=0; i<4; i++){
+               if (rubiks[face].BLOCK[2][1] == rubiks[face].BLOCK[1][1]){
+                   if (rubiks[5].BLOCK[coord_down[0][0]][coord_down[0][1]] != Y){
+                       if(face == 1){
+                           //bring it to right
+                           if (rubiks[5].BLOCK[coord_down[0][0]][coord_down[0][1]] == G){
+                               turn_rubiks(rubiks, DOWN, Anticlockwise);
+                               turn_rubiks(rubiks, left[2], Anticlockwise);
+                               turn_rubiks(rubiks, DOWN, Clockwise);
+                               turn_rubiks(rubiks, left[2], Clockwise);
+                               turn_rubiks(rubiks, DOWN, Clockwise);
+                               turn_rubiks(rubiks, left[1], Clockwise);
+                               turn_rubiks(rubiks, DOWN, Anticlockwise);
+                               turn_rubiks(rubiks, left[1], Anticlockwise);
+                           }
+                           //bring it to left
+                           if (rubiks[5].BLOCK[coord_down[0][0]][coord_down[0][1]] == B){
+                               turn_rubiks(rubiks, DOWN, Clockwise);
+                               turn_rubiks(rubiks, left[0], Clockwise);
+                               turn_rubiks(rubiks, DOWN, Anticlockwise);
+                               turn_rubiks(rubiks, left[0], Anticlockwise);
+                               turn_rubiks(rubiks, DOWN, Anticlockwise);
+                               turn_rubiks(rubiks, left[1], Anticlockwise);
+                               turn_rubiks(rubiks, DOWN, Clockwise);
+                               turn_rubiks(rubiks, left[1], Clockwise);
+                           }
+                       }
+                       if (face == 2){
+                           // Bring it to right
+                           if (rubiks[5].BLOCK[coord_down[1][0]][coord_down[1][1]] == R){
+                               turn_rubiks(rubiks, DOWN, Anticlockwise);
+                               turn_rubiks(rubiks, front[2], Anticlockwise);
+                               turn_rubiks(rubiks, DOWN, Clockwise);
+                               turn_rubiks(rubiks, front[2], Clockwise);
+                               turn_rubiks(rubiks, DOWN, Clockwise);
+                               turn_rubiks(rubiks, front[1], Clockwise);
+                               turn_rubiks(rubiks, DOWN, Anticlockwise);
+                               turn_rubiks(rubiks, front[1], Anticlockwise);
+                           }
+                           // Bring it to left
+                           if (rubiks[5].BLOCK[coord_down[1][0]][coord_down[1][1]] == O){
+                               turn_rubiks(rubiks, DOWN, Clockwise);
+                               turn_rubiks(rubiks, front[0], Clockwise);
+                               turn_rubiks(rubiks, DOWN, Anticlockwise);
+                               turn_rubiks(rubiks, front[0], Anticlockwise);
+                               turn_rubiks(rubiks, DOWN, Anticlockwise);
+                               turn_rubiks(rubiks, front[1], Anticlockwise);
+                               turn_rubiks(rubiks, DOWN, Clockwise);
+                               turn_rubiks(rubiks, front[1], Clockwise);
+                           }
+                       }
+                       if (face == 3){
+                           // Bring it to right
+                           if (rubiks[5].BLOCK[coord_down[2][0]][coord_down[2][1]] == B){
+                               turn_rubiks(rubiks, DOWN, Anticlockwise);
+                               turn_rubiks(rubiks, right[2], Anticlockwise);
+                               turn_rubiks(rubiks, DOWN, Clockwise);
+                               turn_rubiks(rubiks, right[2], Clockwise);
+                               turn_rubiks(rubiks, DOWN, Clockwise);
+                               turn_rubiks(rubiks, right[1], Clockwise);
+                               turn_rubiks(rubiks, DOWN, Anticlockwise);
+                               turn_rubiks(rubiks, right[1], Anticlockwise);
+                           }
+                           // Bring it to left
+                           if (rubiks[5].BLOCK[coord_down[2][0]][coord_down[2][1]] == G){
+                               turn_rubiks(rubiks, DOWN, Clockwise);
+                               turn_rubiks(rubiks, right[0], Clockwise);
+                               turn_rubiks(rubiks, DOWN, Anticlockwise);
+                               turn_rubiks(rubiks, right[0], Anticlockwise);
+                               turn_rubiks(rubiks, DOWN, Anticlockwise);
+                               turn_rubiks(rubiks, right[1], Anticlockwise);
+                               turn_rubiks(rubiks, DOWN, Clockwise);
+                               turn_rubiks(rubiks, right[1], Clockwise);
+                           }
+                       }
+                       if (face == 4){
+                           // Bring it to right
+                           if (rubiks[5].BLOCK[coord_down[3][0]][coord_down[3][1]] == O){
+                               turn_rubiks(rubiks, DOWN, Anticlockwise);
+                               turn_rubiks(rubiks, back[2], Anticlockwise);
+                               turn_rubiks(rubiks, DOWN, Clockwise);
+                               turn_rubiks(rubiks, back[2], Clockwise);
+                               turn_rubiks(rubiks, DOWN, Clockwise);
+                               turn_rubiks(rubiks, back[1], Clockwise);
+                               turn_rubiks(rubiks, DOWN, Anticlockwise);
+                               turn_rubiks(rubiks, back[1], Anticlockwise);
+                           }
+                           // Bring it to left
+                           if (rubiks[5].BLOCK[coord_down[3][0]][coord_down[3][1]] == R){
+                               turn_rubiks(rubiks, DOWN, Clockwise);
+                               turn_rubiks(rubiks, back[0], Clockwise);
+                               turn_rubiks(rubiks, DOWN, Anticlockwise);
+                               turn_rubiks(rubiks, back[0], Anticlockwise);
+                               turn_rubiks(rubiks, DOWN, Anticlockwise);
+                               turn_rubiks(rubiks, back[1], Anticlockwise);
+                               turn_rubiks(rubiks, DOWN, Clockwise);
+                               turn_rubiks(rubiks, back[1], Clockwise);
+                           }
+                       }
+                   }
+               }
+               turn_rubiks(rubiks, DOWN, Clockwise);
+           }
+        }
+        // Case it is badly placed
+        for (int face = 1; face<5; face++){
+            if (rubiks[face].BLOCK[1][2] != rubiks[face].BLOCK[1][1]){
+                if (face == 1){
+                    turn_rubiks(rubiks, DOWN,Anticlockwise);
+                    turn_rubiks(rubiks, left[2],Anticlockwise);
+                    turn_rubiks(rubiks, DOWN,Clockwise);
+                    turn_rubiks(rubiks, left[2],Clockwise);
+                    turn_rubiks(rubiks, DOWN,Clockwise);
+                    turn_rubiks(rubiks, left[1],Clockwise);
+                    turn_rubiks(rubiks, DOWN,Anticlockwise);
+                    turn_rubiks(rubiks, left[1],Anticlockwise);
+                    printf("Mal Placé 1\n");
+                }
+                if (face == 2){
+                    turn_rubiks(rubiks, DOWN,Anticlockwise);
+                    turn_rubiks(rubiks, front[2],Anticlockwise);
+                    turn_rubiks(rubiks, DOWN,Clockwise);
+                    turn_rubiks(rubiks, front[2],Clockwise);
+                    turn_rubiks(rubiks, DOWN,Clockwise);
+                    turn_rubiks(rubiks, front[1],Clockwise);
+                    turn_rubiks(rubiks, DOWN,Anticlockwise);
+                    turn_rubiks(rubiks, front[1],Anticlockwise);
+                    printf("Mal Placé 2\n");
+
+                }
+                if (face == 3){
+                    turn_rubiks(rubiks, DOWN,Anticlockwise);
+                    turn_rubiks(rubiks, right[2],Anticlockwise);
+                    turn_rubiks(rubiks, DOWN,Clockwise);
+                    turn_rubiks(rubiks, right[2],Clockwise);
+                    turn_rubiks(rubiks, DOWN,Clockwise);
+                    turn_rubiks(rubiks, right[1],Clockwise);
+                    turn_rubiks(rubiks, DOWN,Anticlockwise);
+                    turn_rubiks(rubiks, right[1],Anticlockwise);
+                    printf("Mal Placé 3\n");
+
+                }
+                if (face == 4){
+                    turn_rubiks(rubiks, DOWN,Anticlockwise);
+                    turn_rubiks(rubiks, back[2],Anticlockwise);
+                    turn_rubiks(rubiks, DOWN,Clockwise);
+                    turn_rubiks(rubiks, back[2],Clockwise);
+                    turn_rubiks(rubiks, DOWN,Clockwise);
+                    turn_rubiks(rubiks, back[1],Clockwise);
+                    turn_rubiks(rubiks, DOWN,Anticlockwise);
+                    turn_rubiks(rubiks, back[1],Anticlockwise);
+                    printf("Mal Placé 4\n");
+
+                }
+            }
+        }
+        for (int face = 1; face <5 ; face ++){
+            if (rubiks[face].BLOCK[1][0] == Y){
+                if (face == 1){
+                    turn_rubiks(rubiks, DOWN,Clockwise);
+                    turn_rubiks(rubiks, left[0],Clockwise);
+                    turn_rubiks(rubiks, DOWN,Anticlockwise);
+                    turn_rubiks(rubiks, left[0],Anticlockwise);
+                    turn_rubiks(rubiks, DOWN,Anticlockwise);
+                    turn_rubiks(rubiks, left[1],Anticlockwise);
+                    turn_rubiks(rubiks, DOWN,Clockwise);
+                    turn_rubiks(rubiks, left[1],Clockwise);
+                    printf("Mal Placé 1'\n");
+                }
+                if (face == 2){
+                    turn_rubiks(rubiks, DOWN,Clockwise);
+                    turn_rubiks(rubiks, front[0],Clockwise);
+                    turn_rubiks(rubiks, DOWN,Anticlockwise);
+                    turn_rubiks(rubiks, front[0],Anticlockwise);
+                    turn_rubiks(rubiks, DOWN,Anticlockwise);
+                    turn_rubiks(rubiks, front[1],Anticlockwise);
+                    turn_rubiks(rubiks, DOWN,Clockwise);
+                    turn_rubiks(rubiks, front[1],Clockwise);
+                    printf("Mal Placé 2'\n");
+
+                }
+                if (face == 3){
+                    turn_rubiks(rubiks, DOWN,Clockwise);
+                    turn_rubiks(rubiks, right[0],Clockwise);
+                    turn_rubiks(rubiks, DOWN,Anticlockwise);
+                    turn_rubiks(rubiks, right[0],Anticlockwise);
+                    turn_rubiks(rubiks, DOWN,Anticlockwise);
+                    turn_rubiks(rubiks, right[1],Anticlockwise);
+                    turn_rubiks(rubiks, DOWN,Clockwise);
+                    turn_rubiks(rubiks, right[1],Clockwise);
+                    printf("Mal Placé 3'\n");
+
+                }
+                if (face == 4){
+                    turn_rubiks(rubiks, DOWN,Clockwise);
+                    turn_rubiks(rubiks, back[0],Clockwise);
+                    turn_rubiks(rubiks, DOWN,Anticlockwise);
+                    turn_rubiks(rubiks, back[0],Anticlockwise);
+                    turn_rubiks(rubiks, DOWN,Anticlockwise);
+                    turn_rubiks(rubiks, back[1],Anticlockwise);
+                    turn_rubiks(rubiks, DOWN,Clockwise);
+                    turn_rubiks(rubiks, back[1],Clockwise);
+                    printf("Mal Placé 4'\n");
+
+                }
+            }
+        }
+        display_rubiks(rubiks);
+    }while(SecondCrownDone(rubiks)==False);
+}
+
 
 // 5. Yellow Cross
 

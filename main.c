@@ -130,6 +130,8 @@ int main (){
     display_rubiks(Rubiks);
     FirstCrown(Rubiks);
     display_rubiks(Rubiks);
+    SecondCrown(Rubiks);
+    display_rubiks(Rubiks);
 //    half_turn(Rubiks,LEFT);
 //    half_turn(Rubiks,RIGHT);
 //    FirstCrown(Rubiks);

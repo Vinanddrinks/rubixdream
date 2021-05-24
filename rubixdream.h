@@ -58,6 +58,8 @@ void WhiteCross(struct FACE* rubiks);
 void FirstCrown(struct FACE* rubiks);
 Boolean WhiteCrownDone (struct FACE* rubiks);
 Boolean FaceDone(struct FACE* rubiks,Type_SIDE face);
+Boolean SecondCrownDone(struct FACE* rubiks);
+void SecondCrown(struct FACE* rubiks);
 
 // Free
 void free_rubiks(struct FACE* rubiks);
