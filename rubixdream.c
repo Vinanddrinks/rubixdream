@@ -507,10 +507,12 @@ void BringWhiteDown(struct FACE* rubiks, Type_SIDE face){
 void FirstCrown(struct FACE* rubiks) {
     int face_in_pos = 0;
     Type_SIDE left[4] = {BACK,LEFT,FRONT,RIGHT};
-    Type_SIDE right[4] = {FRONT,RIGHT,BACK,BACK};
+    Type_SIDE right[4] = {FRONT,RIGHT,BACK,LEFT};
     Type_SIDE front[4] = {LEFT,FRONT,RIGHT,BACK};
+    int cnst;
     //check for all corner where white stickers are on the white edge
     do {
+        cnst=1;
         if (rubiks[5].BLOCK[0][0] == W) {
             if (rubiks[2].BLOCK[2][0] == G && rubiks[1].BLOCK[2][2] == R) {
                 turn_rubiks(rubiks, DOWN, Clockwise);
@@ -612,7 +614,7 @@ void FirstCrown(struct FACE* rubiks) {
         }
         if (rubiks[5].BLOCK[2][0] == W) {
             if (rubiks[1].BLOCK[2][0] == G && rubiks[4].BLOCK[2][2] == R) {
-                turn_rubiks(rubiks, DOWN, Anticlockwise);
+                half_turn(rubiks, DOWN);
                 half_turn(rubiks,RIGHT);
                 turn_rubiks(rubiks,DOWN,Anticlockwise);
                 half_turn(rubiks,RIGHT);
@@ -651,17 +653,35 @@ void FirstCrown(struct FACE* rubiks) {
                     turn_rubiks(rubiks,front[facel-1],Clockwise);
                     turn_rubiks(rubiks,DOWN,Clockwise);
                     turn_rubiks(rubiks,front[facel-1],Anticlockwise);
-                }else turn_rubiks(rubiks,DOWN,Clockwise),printf("hello\n");
+                    printf("Ok\n");
+                }else turn_rubiks(rubiks,DOWN,Clockwise),cnst=0 ,printf("hello\n");
             }
         }
         //Right case:
         for(int facer = 1; facer<5;facer++){
-            if(rubiks[facer].BLOCK[2][0]==W){
-                if(rubiks[side_to_index(left[facer-1],rubiks)].BLOCK[2][2] == rubiks[side_to_index(left[facer-1],rubiks)].BLOCK[1][1]){
-                    turn_rubiks(rubiks,left[facer-1],Anticlockwise);
-                    turn_rubiks(rubiks,DOWN,Anticlockwise);
-                    turn_rubiks(rubiks,left[facer-1],Clockwise);
-                }else turn_rubiks(rubiks,DOWN,Clockwise),printf("hello1\n");
+            if(rubiks[facer].BLOCK[2][0]==W) {
+                if (rubiks[side_to_index(left[facer - 1], rubiks)].BLOCK[2][2] ==
+                    rubiks[side_to_index(left[facer - 1], rubiks)].BLOCK[1][1]) {
+                    turn_rubiks(rubiks, front[facer - 1], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Anticlockwise);
+                    turn_rubiks(rubiks, front[facer - 1], Clockwise);
+                    printf("Ok1\n");
+                } else if (cnst = 1) {
+                    turn_rubiks(rubiks, DOWN, Clockwise), printf("hello1\n");
+                }
+            }
+        }
+        //Case white stuck on top of sideface:
+        for(int i =1; i<5; i++){
+            if (rubiks[i].BLOCK[0][0] == W){
+                turn_rubiks(rubiks, rubiks[i].SIDE,Anticlockwise);
+                turn_rubiks(rubiks,DOWN,Clockwise);
+                turn_rubiks(rubiks,rubiks[i].SIDE,Clockwise);
+            }
+            if (rubiks[i].BLOCK[0][2] == W){
+                turn_rubiks(rubiks, rubiks[i].SIDE,Clockwise);
+                turn_rubiks(rubiks,DOWN,Clockwise);
+                turn_rubiks(rubiks,rubiks[i].SIDE,Anticlockwise);
             }
         }
         display_rubiks(rubiks);

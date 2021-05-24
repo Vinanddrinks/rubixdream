@@ -122,10 +122,8 @@ int main (){
 //    turn_crown(Rubiks,DOWN,Anticlockwise);
 //    display_rubiks(Rubiks);
 //    half_turn(Rubiks,FRONT);
-    random_rubiks(Rubiks,1200);
+   random_rubiks(Rubiks,1200);
     display_rubiks(Rubiks);
-    half_turn(Rubiks,RIGHT);
-    half_turn(Rubiks,LEFT);
     WhiteDaisy(Rubiks);
     display_rubiks(Rubiks);
     WhiteCross(Rubiks);
