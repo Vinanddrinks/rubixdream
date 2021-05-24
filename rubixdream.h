@@ -65,6 +65,7 @@ Boolean YellowL(struct FACE* rubiks);
 Boolean YellowLine(struct FACE* rubiks);
 int howManyEdgesInPos(struct FACE* rubiks);
 void YellowCross(struct FACE* rubiks);
+void YellowEdges(struct FACE* rubiks);
 
 // Free
 void free_rubiks(struct FACE* rubiks);

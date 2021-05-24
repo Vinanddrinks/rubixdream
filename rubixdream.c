@@ -1113,39 +1113,189 @@ Boolean YellowEdgesDone(struct FACE* rubiks){
 }
 
 int howManyEdgesInPos(struct FACE* rubiks){
+    // This function checks how many edges are in position and places the yellow face such that the most yellow edges are in place
     int edge_in_pos = 0, max;
     max = edge_in_pos;
     for (int test = 0; test <4; test++){
-        if (rubiks[1].[2])
+        edge_in_pos = 0;
+        for (int i = 1; i<5; i++) {
+            if (rubiks[i].BLOCK[2][1] == rubiks[i].BLOCK[1][1]) {
+                edge_in_pos++;
+            }
+        }
+        if (edge_in_pos>max){
+            max = edge_in_pos;
+        }
+        turn_rubiks(rubiks, DOWN, Clockwise);
+    }
+    edge_in_pos = 0;
+    while(edge_in_pos != max){
+        turn_rubiks(rubiks, DOWN, Clockwise);
+        edge_in_pos = 0;
+        for (int i = 1; i<5; i++) {
+            if (rubiks[i].BLOCK[2][1] == rubiks[i].BLOCK[1][1]) {
+                edge_in_pos++;
+            }
+        }
     }
     return max;
 }
 
 void YellowEdges(struct FACE* rubiks) {
+    Type_SIDE left[4] = {BACK,LEFT,FRONT,RIGHT};
+    Type_SIDE right[4] = {FRONT,RIGHT,BACK,LEFT};
+    Type_SIDE front[4] = {LEFT,FRONT,RIGHT,BACK};
+    Type_SIDE back[4] = {LEFT, BACK, RIGHT, FRONT};
+    int in_pos;
+    in_pos = howManyEdgesInPos(rubiks);
     do{
-        while(rubiks[1].BLOCK[2][1] != O){
-            turn_rubiks(rubiks, BACK, Clockwise);
-            turn_rubiks(rubiks, DOWN, Clockwise);
-            turn_rubiks(rubiks, BACK, Anticlockwise);
-            turn_rubiks(rubiks, DOWN, Clockwise);
-            turn_rubiks(rubiks, BACK, Clockwise);
-            turn_rubiks(rubiks, DOWN, Clockwise);
-            turn_rubiks(rubiks, DOWN, Clockwise);
-            turn_rubiks(rubiks, BACK, Anticlockwise);
-            turn_rubiks(rubiks, DOWN, Clockwise);
+        for (int face = 1; face < 5; face ++) {
+            if (rubiks[face].BLOCK[2][1] == rubiks[opposite_index(face)].BLOCK[1][1]){
+                if (face == 1){
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, left[2], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, left[2], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, left[2], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, left[2], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, left[3], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, left[3], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, left[3], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, left[3], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
 
-            for (int test =0; test <4; test++){
-                if(rubiks[1].BLOCK[2][1] != O){
+                }
+                if (face == 2){
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, front[2], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, front[2], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, front[2], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, front[2], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, front[3], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, front[3], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, front[3], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, front[3], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+
+                }
+                if (face == 3){
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, right[2], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, right[2], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, right[2], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, right[2], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, right[3], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, right[3], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, right[3], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, right[3], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+
+                }
+                if (face == 4){
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, back[2], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, back[2], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, back[2], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, back[2], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, back[3], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, back[3], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, back[3], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, back[3], Anticlockwise);
                     turn_rubiks(rubiks, DOWN, Clockwise);
                 }
             }
-
-
         }
+        in_pos = howManyEdgesInPos(rubiks);
+        for (int face = 1; face < 5; face++){
+            if (rubiks[face].BLOCK[2][1] == rubiks[right_index(face)].BLOCK[1][1]){
+                if (face == 1){
+                    turn_rubiks(rubiks, left[0], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, left[0], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, left[0], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, left[0], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
 
+                }
+                if (face == 2){
+                    turn_rubiks(rubiks, front[0], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, front[0], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, front[0], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, front[0], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
 
+                }
+                if (face == 3) {
+                    turn_rubiks(rubiks, right[0], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, right[0], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, right[0], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, right[0], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
 
+                }
+                if (face == 4){
+                    turn_rubiks(rubiks, back[0], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, back[0], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, back[0], Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+                    turn_rubiks(rubiks, back[0], Anticlockwise);
+                    turn_rubiks(rubiks, DOWN, Clockwise);
+
+                }
+            }
+        }
+        in_pos = howManyEdgesInPos(rubiks);
     }while(YellowEdgesDone(rubiks)==False);
+
 }
 
 // Free rubiks
