@@ -122,15 +122,18 @@ int main (){
 //    turn_crown(Rubiks,DOWN,Anticlockwise);
 //    display_rubiks(Rubiks);
 //    half_turn(Rubiks,FRONT);
-//    random_rubiks(Rubiks,1200);
+    random_rubiks(Rubiks,1200);
     display_rubiks(Rubiks);
-    turn_rubiks(Rubiks, DOWN, Clockwise);
-//    WhiteDaisy(Rubiks);
-//    display_rubiks(Rubiks);
-//    WhiteCross(Rubiks);
-//    display_rubiks(Rubiks);
+    half_turn(Rubiks,RIGHT);
+    half_turn(Rubiks,LEFT);
+    WhiteDaisy(Rubiks);
+    display_rubiks(Rubiks);
+    WhiteCross(Rubiks);
+    display_rubiks(Rubiks);
+    FirstCrown(Rubiks);
+//    half_turn(Rubiks,LEFT);
+//    half_turn(Rubiks,RIGHT);
 //    FirstCrown(Rubiks);
-    display_rubiks(Rubiks);
-    free_rubiks(Rubiks);
+//    free_rubiks(Rubiks);
     return 0;
 }

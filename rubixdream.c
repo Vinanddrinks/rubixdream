@@ -483,47 +483,6 @@ Boolean FaceDone(struct FACE* rubiks,Type_SIDE face) {
     }
 }
 
-void BringWhiteDOWNtoUP(struct FACE* rubiks, int cas){
-    // Case 1: pos(0,0); Case2: pos(0.2); Case 3: pos(2,0); Case 4: pos (2,2)
-    if (cas == 1){
-        for (int i = 0; i <3; i++) {
-            half_turn(rubiks, FRONT);
-            turn_face(rubiks, DOWN, Anticlockwise);
-            half_turn(rubiks, FRONT);
-            turn_face(rubiks, DOWN, Clockwise);
-            half_turn(rubiks, FRONT);
-        }
-    }
-    if (cas == 2){
-        for (int i = 0; i < 3; i++) {
-            half_turn(rubiks, RIGHT);
-            turn_face(rubiks, DOWN, Anticlockwise);
-            half_turn(rubiks, RIGHT);
-            turn_face(rubiks, DOWN, Clockwise);
-            half_turn(rubiks, RIGHT);
-
-        }
-    }
-    if (cas == 3){
-        for (int i = 0; i < 3; i++) {
-            half_turn(rubiks, LEFT);
-            turn_face(rubiks, DOWN, Anticlockwise);
-            half_turn(rubiks, LEFT);
-            turn_face(rubiks, DOWN, Clockwise);
-            half_turn(rubiks, LEFT);
-
-        }
-    }
-    if (cas == 4){
-        for (int i = 0; i < 3; i++) {
-            half_turn(rubiks, BACK);
-            turn_face(rubiks, DOWN, Anticlockwise);
-            half_turn(rubiks, BACK);
-            turn_face(rubiks, DOWN, Clockwise);
-            half_turn(rubiks, BACK);
-        }
-    }
-}
 
 void MiddleBotRightToUp(struct FACE* rubiks, Type_SIDE face){
     turn_rubiks(rubiks, face, Clockwise);
@@ -547,87 +506,168 @@ void BringWhiteDown(struct FACE* rubiks, Type_SIDE face){
 
 void FirstCrown(struct FACE* rubiks) {
     int face_in_pos = 0;
-    Type_SIDE *adjacent_sides = calloc(4,
-                                       sizeof(Type_SIDE)); //0 = UP, 1 = DOWN, 2 = LEFT; 3= RIGHT (when looking at selected face)
-
+    Type_SIDE left[4] = {BACK,LEFT,FRONT,RIGHT};
+    Type_SIDE right[4] = {FRONT,RIGHT,BACK,BACK};
+    Type_SIDE front[4] = {LEFT,FRONT,RIGHT,BACK};
+    //check for all corner where white stickers are on the white edge
     do {
         if (rubiks[5].BLOCK[0][0] == W) {
             if (rubiks[2].BLOCK[2][0] == G && rubiks[1].BLOCK[2][2] == R) {
-                printf("hello");
                 turn_rubiks(rubiks, DOWN, Clockwise);
-                BringWhiteDOWNtoUP(rubiks, 2);
+                half_turn(rubiks,RIGHT);
+                turn_rubiks(rubiks,DOWN,Anticlockwise);
+                half_turn(rubiks,RIGHT);
+                turn_rubiks(rubiks,DOWN,Clockwise);
+                half_turn(rubiks,RIGHT);
             }
             if (rubiks[2].BLOCK[2][0] == R && rubiks[1].BLOCK[2][2] == B) {
-                printf("hello2");
                 half_turn(rubiks, DOWN);
-                BringWhiteDOWNtoUP(rubiks, 4);
+                half_turn(rubiks,BACK);
+                turn_rubiks(rubiks,DOWN,Anticlockwise);
+                half_turn(rubiks,BACK);
+                turn_rubiks(rubiks,DOWN,Clockwise);
+                half_turn(rubiks,BACK);
             }
             if (rubiks[2].BLOCK[2][0] == B && rubiks[1].BLOCK[2][2] == O) {
-                printf("hello3");
                 turn_rubiks(rubiks, DOWN, Anticlockwise);
-                BringWhiteDOWNtoUP(rubiks, 3);
+                half_turn(rubiks,LEFT);
+                turn_rubiks(rubiks,DOWN,Anticlockwise);
+                half_turn(rubiks,LEFT);
+                turn_rubiks(rubiks,DOWN,Clockwise);
+                half_turn(rubiks,LEFT);
             }
-            if (rubiks[3].BLOCK[2][0] == O && rubiks[2].BLOCK[2][2] == G){
-                printf("hello4");
-                BringWhiteDOWNtoUP(rubiks, 1);
+            if (rubiks[2].BLOCK[2][0] == O && rubiks[1].BLOCK[2][2] == G){
+                half_turn(rubiks,FRONT);
+                turn_rubiks(rubiks,DOWN,Anticlockwise);
+                half_turn(rubiks,FRONT);
+                turn_rubiks(rubiks,DOWN,Clockwise);
+                half_turn(rubiks,FRONT);
             }
         }
         if (rubiks[5].BLOCK[0][2] == W) {
             if (rubiks[3].BLOCK[2][0] == G && rubiks[2].BLOCK[2][2] == R) {
-                printf("hello\n");
-                BringWhiteDOWNtoUP(rubiks, 2);
+                half_turn(rubiks,RIGHT);
+                turn_rubiks(rubiks,DOWN,Anticlockwise);
+                half_turn(rubiks,RIGHT);
+                turn_rubiks(rubiks,DOWN,Clockwise);
+                half_turn(rubiks,RIGHT);
             }
             if (rubiks[3].BLOCK[2][0] == R && rubiks[2].BLOCK[2][2] == B) {
                 turn_rubiks(rubiks, DOWN, Clockwise);
-                BringWhiteDOWNtoUP(rubiks, 4);
+                half_turn(rubiks,BACK);
+                turn_rubiks(rubiks,DOWN,Anticlockwise);
+                half_turn(rubiks,BACK);
+                turn_rubiks(rubiks,DOWN,Clockwise);
+                half_turn(rubiks,BACK);
             }
             if (rubiks[3].BLOCK[2][0] == B && rubiks[2].BLOCK[2][2] == O) {
                 half_turn(rubiks, DOWN);
-                BringWhiteDOWNtoUP(rubiks, 3);
+                half_turn(rubiks,LEFT);
+                turn_rubiks(rubiks,DOWN,Anticlockwise);
+                half_turn(rubiks,LEFT);
+                turn_rubiks(rubiks,DOWN,Clockwise);
+                half_turn(rubiks,LEFT);
             }
             if (rubiks[3].BLOCK[2][0] == O && rubiks[2].BLOCK[2][2] == G) {
                 turn_rubiks(rubiks, DOWN, Anticlockwise);
-                BringWhiteDOWNtoUP(rubiks, 1);
+                half_turn(rubiks,FRONT);
+                turn_rubiks(rubiks,DOWN,Anticlockwise);
+                half_turn(rubiks,FRONT);
+                turn_rubiks(rubiks,DOWN,Clockwise);
+                half_turn(rubiks,FRONT);
             }
         }
         if (rubiks[5].BLOCK[2][2] == W) {
             if (rubiks[4].BLOCK[2][0] == G && rubiks[3].BLOCK[2][2] == R) {
                 turn_rubiks(rubiks, DOWN, Anticlockwise);
-                BringWhiteDOWNtoUP(rubiks, 2);
+                half_turn(rubiks,RIGHT);
+                turn_rubiks(rubiks,DOWN,Anticlockwise);
+                half_turn(rubiks,RIGHT);
+                turn_rubiks(rubiks,DOWN,Clockwise);
+                half_turn(rubiks,RIGHT);
             }
             if (rubiks[4].BLOCK[2][0] == R && rubiks[3].BLOCK[2][2] == B) {
-                BringWhiteDOWNtoUP(rubiks, 4);
+                half_turn(rubiks,BACK);
+                turn_rubiks(rubiks,DOWN,Anticlockwise);
+                half_turn(rubiks,BACK);
+                turn_rubiks(rubiks,DOWN,Clockwise);
+                half_turn(rubiks,BACK);
             }
             if (rubiks[4].BLOCK[2][0] == B && rubiks[3].BLOCK[2][2] == O) {
                 half_turn(rubiks, DOWN);
-                BringWhiteDOWNtoUP(rubiks, 3);
+                half_turn(rubiks,LEFT);
+                turn_rubiks(rubiks,DOWN,Anticlockwise);
+                half_turn(rubiks,LEFT);
+                turn_rubiks(rubiks,DOWN,Clockwise);
+                half_turn(rubiks,LEFT);
             }
             if (rubiks[4].BLOCK[2][0] == O && rubiks[3].BLOCK[2][2] == G) {
                 turn_rubiks(rubiks, DOWN, Clockwise);
-                BringWhiteDOWNtoUP(rubiks, 1);
+                half_turn(rubiks,FRONT);
+                turn_rubiks(rubiks,DOWN,Anticlockwise);
+                half_turn(rubiks,FRONT);
+                turn_rubiks(rubiks,DOWN,Clockwise);
+                half_turn(rubiks,FRONT);
             }
         }
         if (rubiks[5].BLOCK[2][0] == W) {
             if (rubiks[1].BLOCK[2][0] == G && rubiks[4].BLOCK[2][2] == R) {
                 turn_rubiks(rubiks, DOWN, Anticlockwise);
-                BringWhiteDOWNtoUP(rubiks, 2);
+                half_turn(rubiks,RIGHT);
+                turn_rubiks(rubiks,DOWN,Anticlockwise);
+                half_turn(rubiks,RIGHT);
+                turn_rubiks(rubiks,DOWN,Clockwise);
+                half_turn(rubiks,RIGHT);
             }
             if (rubiks[1].BLOCK[2][0] == R && rubiks[4].BLOCK[2][2] == B) {
                 turn_rubiks(rubiks, DOWN, Anticlockwise);
-                BringWhiteDOWNtoUP(rubiks, 4);
+                half_turn(rubiks,BACK);
+                turn_rubiks(rubiks,DOWN,Anticlockwise);
+                half_turn(rubiks,BACK);
+                turn_rubiks(rubiks,DOWN,Clockwise);
+                half_turn(rubiks,BACK);
             }
             if (rubiks[1].BLOCK[2][0] == B && rubiks[4].BLOCK[2][2] == O) {
-                BringWhiteDOWNtoUP(rubiks, 3);
+                half_turn(rubiks,LEFT);
+                turn_rubiks(rubiks,DOWN,Anticlockwise);
+                half_turn(rubiks,LEFT);
+                turn_rubiks(rubiks,DOWN,Clockwise);
+                half_turn(rubiks,LEFT);
             }
             if (rubiks[1].BLOCK[2][0] == O && rubiks[4].BLOCK[2][2] == G) {
                 turn_rubiks(rubiks, DOWN, Clockwise);
-                BringWhiteDOWNtoUP(rubiks, 1);
+                half_turn(rubiks,FRONT);
+                turn_rubiks(rubiks,DOWN,Anticlockwise);
+                half_turn(rubiks,FRONT);
+                turn_rubiks(rubiks,DOWN,Clockwise);
+                half_turn(rubiks,FRONT);
             }
         }
+        //Now we check the left and right cases
+        //Left case:
+        for(int facel = 1; facel<5;facel++){
+            if(rubiks[facel].BLOCK[2][2]==W){
+                if(rubiks[side_to_index(right[facel-1],rubiks)].BLOCK[2][0] == rubiks[side_to_index(right[facel-1],rubiks)].BLOCK[1][1]){
+                    turn_rubiks(rubiks,front[facel-1],Clockwise);
+                    turn_rubiks(rubiks,DOWN,Clockwise);
+                    turn_rubiks(rubiks,front[facel-1],Anticlockwise);
+                }else turn_rubiks(rubiks,DOWN,Clockwise),printf("hello\n");
+            }
+        }
+        //Right case:
+        for(int facer = 1; facer<5;facer++){
+            if(rubiks[facer].BLOCK[2][0]==W){
+                if(rubiks[side_to_index(left[facer-1],rubiks)].BLOCK[2][2] == rubiks[side_to_index(left[facer-1],rubiks)].BLOCK[1][1]){
+                    turn_rubiks(rubiks,left[facer-1],Anticlockwise);
+                    turn_rubiks(rubiks,DOWN,Anticlockwise);
+                    turn_rubiks(rubiks,left[facer-1],Clockwise);
+                }else turn_rubiks(rubiks,DOWN,Clockwise),printf("hello1\n");
+            }
+        }
+        //descend case (incorrectly placed white corner)
+        for(int i =0; i<4;i++);
         display_rubiks(rubiks);
-    }while ((FaceDone(rubiks, UP) == False) && (WhiteCrownDone(rubiks) == False));
-
-    free(adjacent_sides);
+    }while ((FaceDone(rubiks, UP) == False) || (WhiteCrownDone(rubiks) == False));
 }
 
 // 3. First Crown

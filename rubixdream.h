@@ -56,6 +56,11 @@ void crown_namegiver(Type_SIDE* CRlist,Type_SIDE center_face);
 void WhiteDaisy(struct FACE* rubiks);
 void WhiteCross(struct FACE* rubiks);
 void FirstCrown(struct FACE* rubiks);
+void MiddleBotRightToUp(struct FACE* rubiks, Type_SIDE face);
+void MiddleBotLeftToUp(struct FACE* rubiks, Type_SIDE face);
+void BringWhiteDown(struct FACE* rubiks, Type_SIDE face);
+Boolean WhiteCrownDone (struct FACE* rubiks);
+Boolean FaceDone(struct FACE* rubiks,Type_SIDE face);
 
 // Free
 void free_rubiks(struct FACE* rubiks);
