@@ -505,7 +505,6 @@ void BringWhiteDown(struct FACE* rubiks, Type_SIDE face){
 }
 
 void FirstCrown(struct FACE* rubiks) {
-    int face_in_pos = 0;
     Type_SIDE left[4] = {BACK,LEFT,FRONT,RIGHT};
     Type_SIDE right[4] = {FRONT,RIGHT,BACK,LEFT};
     Type_SIDE front[4] = {LEFT,FRONT,RIGHT,BACK};
@@ -655,8 +654,8 @@ void FirstCrown(struct FACE* rubiks) {
                     turn_rubiks(rubiks,front[facel-1],Clockwise);
                     turn_rubiks(rubiks,DOWN,Clockwise);
                     turn_rubiks(rubiks,front[facel-1],Anticlockwise);
-                    printf("Ok\n");
-                }else turn_rubiks(rubiks,DOWN,Clockwise),cnst=0 ,printf("hello\n");
+
+                }else turn_rubiks(rubiks,DOWN,Clockwise),cnst=0;
             }
         }
         //Right case:
@@ -667,9 +666,8 @@ void FirstCrown(struct FACE* rubiks) {
                     turn_rubiks(rubiks, front[facer - 1], Anticlockwise);
                     turn_rubiks(rubiks, DOWN, Anticlockwise);
                     turn_rubiks(rubiks, front[facer - 1], Clockwise);
-                    printf("Ok1\n");
                 } else if (cnst == 1) {
-                    turn_rubiks(rubiks, DOWN, Clockwise), printf("hello1\n");
+                    turn_rubiks(rubiks, DOWN, Clockwise);
                 }
             }
         }
@@ -702,7 +700,6 @@ void FirstCrown(struct FACE* rubiks) {
                 }
             }
         }
-        display_rubiks(rubiks);
     }while ((FaceDone(rubiks, UP) == False) || (WhiteCrownDone(rubiks) == False));
 }
 
